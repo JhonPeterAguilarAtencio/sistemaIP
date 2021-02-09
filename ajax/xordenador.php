@@ -101,6 +101,37 @@
 
                     echo json_encode($results);
             break;
+
+            case 'listar':
+                $rspta=$ordenador->listar();
+                //vamos a declarar un array
+                $data= Array();
+                while ($reg=$rspta->fetch_object()){
+                    $data[]=array(
+                        "0"=>($reg->Oestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'. 
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idordenador.')"><i class="fa fa-toggle-off"></i></button>' :
+                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-primary" onclick="activar('.$reg->idordenador.')"><i class="fa fa-check"></i></button>',
+                        "1"=>$reg->Ocodigopatrimonial,
+                        "2"=>$reg->Omarca,
+                        "3"=>$reg->Omodelo,
+                        "4"=>$reg->Oarea,   
+                        "5"=>"<img src='../../files/ordenador/".$reg->Oimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
+                        "6"=>($reg->Oestado)?'<span class="badge badge-primary">Activado</span>':
+                        '<span class="right badge badge-danger">Desactivado</span>'
+                    );
+                }
+
+                $results = array(
+                    "sEcho"=>1, //Informacion para el datatables
+                    "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+                    "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+                    "aaData"=>$data);
+
+                    echo json_encode($results);
+            break;
             
             case 'selectcodigomouse':
                 require_once "../modelos/mmouses.php";
