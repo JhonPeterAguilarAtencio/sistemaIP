@@ -51,6 +51,16 @@ Class Ordenador
         $sql="SELECT * FROM ordenador WHERE idordenador='$idordenador'";
         return ejecutarConsultaSimpleFila($sql);
     }
+    public function ver($idordenador)
+    {
+        $sql="SELECT * FROM ordenador WHERE idordenador='$idordenador'";
+        $sql2="SELECT a.idordenador,a.Ocodigopatrimonial,a.Omarca,a.Omodelo,a.Oarea,a.Oimagen,
+        b.Mcodigopatrimonial,b.Mmarca,c.Tcodigopatrimonial,c.Tmarca,d.Pcodigopatrimonial,d.Pmarca,a.Oestado FROM ordenador a INNER JOIN mouse b
+        ON a.idmouse=b.idmouse INNER JOIN teclado c ON a.idteclado=c.idteclado INNER JOIN pantalla d ON  
+		   a.idpantalla=d.idpantalla
+		   WHERE idordenador='$idordenador'";
+        return ejecutarConsultaSimpleFila($sql2);
+    }
 
     //metodo para listar los registros 
     public function listar()

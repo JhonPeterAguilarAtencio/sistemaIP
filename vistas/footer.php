@@ -1,4 +1,4 @@
-
+﻿
 <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -56,43 +56,29 @@
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
                                 <input type="hidden" name="idordenador" id="idordenador">
-                                <input type="text" class="form-control" name="Ocodigopatrimonial" id="Ocodigopatrimonial">
+                                <input type="text" class="form-control" disabled name="txtOcodigopatrimonial" id="txtOcodigopatrimonial">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text"  class="form-control" disabled id="txtmarcaordenador">
                             </div>
                         </div>
                     </div>
-                    <label>Detalle de Mouse</label>
-                    <div class="row clearfix">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                        </div>
-                    </div>
+                   
                     <label>Detalle de Teclado</label>
                     <div class="row clearfix">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" disabled id="txtpatrimonioanlteclado">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" disabled id="txtmarcateclado">
                             </div>
                         </div>
                     </div>
@@ -102,13 +88,28 @@
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
                                 
-                                <input type="text" class="form-control" name="Ocodigopatrimonial" id="Ocodigopatrimonial">
+                                <input type="text" class="form-control"  disabled name="txtcodigopatpantalla" id="txtcodigopatpantalla">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" name="Omarca" id="Omarca">
+                                <input type="text" class="form-control"  disabled name="txtmarcapantalla" id="txtmarcapantalla">
+                            </div>
+                        </div>
+                    </div>
+                    <label>Detalle de Mouse</label>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
+                                <input type="text" class="form-control" disabled id="txtcodigomouse">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Marca:</label>
+                                <input type="text" class="form-control" disabled id="txtmarcamouse">
                             </div>
                         </div>
                     </div>

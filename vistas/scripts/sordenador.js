@@ -1,4 +1,4 @@
-var tabla;
+﻿var tabla;
 
 //funcion que se ejecute al inicio
 function init()
@@ -150,7 +150,7 @@ function mostrar(idordenador)
     {
         data = JSON.parse(data);
         mostrarfrom(true);
-
+        console.log(data);
         $("#Ocodigopatrimonial").val(data.Ocodigopatrimonial);
         $("#Omarca").val(data.Omarca); 
         $("#Omodelo").val(data.Omodelo); 
@@ -162,6 +162,36 @@ function mostrar(idordenador)
         $("#idteclado").val(data.idteclado);
         $("#idpantalla").val(data.idpantalla);
         $("#idordenador").val(data.idordenador);
+    })
+}
+function ver(idordenador)
+{
+  
+    $.post("../../ajax/xordenador.php?op=ver",{idordenador : idordenador}, function(data, status)
+    {
+        data = JSON.parse(data);
+       // mostrarfrom(true);
+        console.log(data);
+        //ordenador
+        $("#txtmarcaordenador").val(data.Omarca);
+        $("#txtOcodigopatrimonial").val(data.Ocodigopatrimonial);
+
+        //teclado
+        $("#txtpatrimonioanlteclado").val(data.Tcodigopatrimonial);
+        $("#txtmarcateclado").val(data.Tmarca); 
+
+       //pantalla 
+
+        $("#txtcodigopatpantalla").val(data.Pcodigopatrimonial); 
+        $("#txtmarcapantalla").val(data.Pmarca); 
+
+        //mouse 
+        $("#txtcodigomouse").val(data.Mcodigopatrimonial);
+        $("#txtmarcamouse").val(data.Mmarca);
+
+       
+     
+
     })
 }
 
