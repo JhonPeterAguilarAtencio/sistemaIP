@@ -78,10 +78,10 @@
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
                         "0"=>($reg->Oestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')" >ver</button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-danger" onclick="desactivar('.$reg->idordenador.')"><i class="fa fa-toggle-off"></i></button>' :
-                        ' <button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')">ver</i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
+                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-primary" onclick="activar('.$reg->idordenador.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Ocodigopatrimonial,
                         "2"=>$reg->Omarca,
