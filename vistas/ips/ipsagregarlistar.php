@@ -1,5 +1,14 @@
 <?php
 
+//Activamos el almacenamiento en el buffer
+ob_start();
+session_start();
+
+if (!isset($_SESSION["Ulogin"]))
+{
+    header("Location: ../login.php");
+}
+else{
  include '../header.php';
  ?>
     <!-- Begin Page Content --> <!-- CONTENIDO DEL DASDBOARD -->
@@ -255,3 +264,7 @@ require '../footer.php';
     </div>
 
 <script type="text/javascript" src="../scripts/sips.js"></script>
+<?php
+ }
+ ob_end_flush();
+?>

@@ -38,8 +38,6 @@ function init()
         $("#idimpresora").html(r);
         $('#idimpresora').selectpicker('refresh');
     });
-
-    $("#Oimagenmuestra").hide();
 }
 
 //funcion Limpiar
