@@ -1,4 +1,4 @@
-﻿var tabla;
+var tabla;
 
 //funcion que se ejecute al inicio
 function init()
@@ -11,39 +11,23 @@ function init()
         guardaryeditar(e);
     });
 
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigomouse", function(r){
-        $("#idmouse").html(r);
-        $('#idmouse').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigoteclado", function(r){
-        $("#idteclado").html(r);
-        $('#idteclado').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigopantalla", function(r){
-        $("#idpantalla").html(r);
-        $('#idpantalla').selectpicker('refresh');
-    });
-
-    $("#Oimagenmuestra").hide();
+    $("#PERimagenmuestra").hide();
 }
 
 //funcion Limpiar
 function limpiar()
 {
-    $("#idordenador").val("");
-    $("#Ocodigopatrimonial").val("");
-    $("#Omarca").val(""); 
-    $("#Omodelo").val(""); 
-    $("#Oarea").val("");
-    $("#Oimagen").val("");
-    $("#Oimagenmuestra").attr("src","");
-    $("#Oimagenactual").val("");
-    $("#idmouse").val("");
-    $("#idteclado").val("");
-    $("#idpantalla").val("");
+    $("#idpersona").val("");
+    $("#PERdni").val("");
+    $("#PERnombre").val(""); 
+    $("#PERapellidos").val(""); 
+    $("#PERtelefono").val("");
+    $("#PERemail").val("");
+    $("#PERarea").val("");
+    $("#PERimagen").val("");
+    $("#PERimagenmuestra").attr("src","");
+    $("#PERimagenactual").val("");
+
 }
 
 //funcion mostrar formulario
@@ -88,7 +72,7 @@ function listado()
             ],
             "ajax":
             {
-                url: '../../ajax/xordenador.php?op=listar',
+                url: '../../ajax/xpersona.php?op=listar',
                 type : "get",
                 dataType : "json",
                 error: function(e){
@@ -119,7 +103,7 @@ function guardaryeditar(e)
       }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "../../ajax/xordenador.php?op=guardaryeditar",
+                url: "../../ajax/xpersona.php?op=guardaryeditar",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -144,57 +128,30 @@ function guardaryeditar(e)
 }
 
 //FUNCION PARA EDITAR DATOS
-function mostrar(idordenador)
+function mostrar(idpersona)
 {
-    $.post("../../ajax/xordenador.php?op=mostrar",{idordenador : idordenador}, function(data, status)
+    $.post("../../ajax/xpersona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarfrom(true);
-        console.log(data);
-        $("#Ocodigopatrimonial").val(data.Ocodigopatrimonial);
-        $("#Omarca").val(data.Omarca); 
-        $("#Omodelo").val(data.Omodelo); 
-        $("#Oarea").val(data.Oarea); 
-        $("#Oimagenmuestra").show();
-        $("#Oimagenmuestra").attr("src","../../files/ordenador/"+data.Oimagen);
-        $("#Oimagenactual").val(data.Oimagen);
-        $("#idmouse").val(data.idmouse);
-        $("#idteclado").val(data.idteclado);
-        $("#idpantalla").val(data.idpantalla);
-        $("#idordenador").val(data.idordenador);
-    })
-}
-function ver(idordenador)
-{
-  
-    $.post("../../ajax/xordenador.php?op=ver",{idordenador : idordenador}, function(data, status)
-    {
-        data = JSON.parse(data);
-       // mostrarfrom(true);
-        console.log(data);
-        //ordenador
-        $("#txtmarcaordenador").val(data.Omarca);
-        $("#txtOcodigopatrimonial").val(data.Ocodigopatrimonial);
 
-        //teclado
-        $("#txtpatrimonioanlteclado").val(data.Tcodigopatrimonial);
-        $("#txtmarcateclado").val(data.Tmarca); 
-
-       //pantalla 
-
-        $("#txtcodigopatpantalla").val(data.Pcodigopatrimonial); 
-        $("#txtmarcapantalla").val(data.Pmarca); 
-
-        //mouse 
-        $("#txtcodigomouse").val(data.Mcodigopatrimonial);
-        $("#txtmarcamouse").val(data.Mmarca);
+        $("#PERdni").val(data.PERdni);
+        $("#PERnombre").val(data.PERnombre); 
+        $("#PERapellidos").val(data.PERapellidos); 
+        $("#PERtelefono").val(data.PERtelefono);
+        $("#PERemail").val(data.PERemail);
+        $("#PERarea").val(data.PERarea);
+        $("#PERimagenmuestra").show();
+        $("#PERimagenmuestra").attr("src","../../files/personas/"+data.PERimagen);
+        $("#PERimagenactual").val(data.PERimagen);
+        $("#idpersona").val(data.idpersona); 
 
     })
 }
 
 //FUNCION PARA DESACTIVAR REGISTROS
 
-function desactivar(idordenador)
+function desactivar(idpersona)
 {
     Swal.fire({
         title: '¿Estas Seguro de Desactivar?',
@@ -206,7 +163,7 @@ function desactivar(idordenador)
         confirmButtonText: 'Si, Desactivar!'
       }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../ajax/xordenador.php?op=desactivar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/xpersona.php?op=desactivar",{idpersona : idpersona}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Desactivado!',
@@ -220,7 +177,7 @@ function desactivar(idordenador)
 }
 
 //FUNCION PARA ACTIVAR REGISTROS
-function activar(idordenador)
+function activar(idpersona)
 {
     Swal.fire({
         title: '¿Estas Seguro de Activar?',
@@ -233,7 +190,7 @@ function activar(idordenador)
       }).then((result) => {
         if (result.isConfirmed) {
 
-            $.post("../../ajax/xordenador.php?op=activar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/xpersona.php?op=activar",{idpersona : idpersona}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Activado!',

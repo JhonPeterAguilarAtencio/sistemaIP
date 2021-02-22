@@ -1,13 +1,13 @@
 <?php
 
 ob_start();
-session_start();
+ session_start();
 
-if (!isset($_SESSION["Ulogin"]))
-{
-    header("Location: ../login.php");
-}
-else{
+ if (!isset($_SESSION["Ulogin"]))
+ {
+     header("Location: ../login.php");
+ }
+ else{
 
  include '../header.php';
  ?>
@@ -17,9 +17,9 @@ else{
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento Pantallas</h1>
+            <h1 class="h3 mb-0 text-gray-800">Mantenimiento de Areas</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
-            <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
+            <i class="fa fa-plus-circle fa-sm text-white-120"></i>  Agregar</button>
         </div>
 
         <!------------------------------INICIO Contenido Principal---------------------------------->
@@ -40,26 +40,22 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de Pantallas</h4>
+                                                <h4 class="header-title mt-0">Detalle de Areas</h4>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
                                                             <th>Opciones</th>
-                                                            <th>codigo patrimonial</th>
-                                                            <th>marca</th>
-                                                            <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
+                                                            <th>Sigla</th>
+                                                            <th>nombre</th>
+                                                            <th>descripcion</th>
                                                             <th>estado</th>
                                                         </thead>
                                                         <tbody>
                                                             <tfoot>
-                                                            <th>ID</th>
-                                                            <th>codigo patrimonial</th>
-                                                            <th>marca</th>
-                                                            <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
+                                                            <th>Opciones</th>
+                                                            <th>Sigla</th>
+                                                            <th>nombre</th>
+                                                            <th>descripcion</th>
                                                             <th>estado</th>
                                                             </tfoot>
                                                         </tbody>
@@ -87,47 +83,30 @@ else{
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos de la Pantalla</h4>
+                                                <h4 class="mt-0 header-title">Datos de Area</h4>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>Codigo patrimonial</label>
-                                                                <input type="hidden" name="idpantalla" id="idpantalla">
-                                                                <input class="form-control" type="text" name="Pcodigopatrimonial" id="Pcodigopatrimonial" 
-                                                                maxLength="50" placeholder="Codigo Patrimonial">
+                                                                <label>Nombre sigla:</label>
+                                                                <input type="hidden" name="idarea" id="idarea">
+                                                                <input class="form-control" type="text" name="Asiglas" id="Asiglas"
+                                                                placeholder="Nombre Sigla">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Nombre Area:</label>
+                                                                <input class="form-control" type="text" name="Anombre" id="Anombre"
+                                                                placeholder="Nombre Area">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                    <label>Marca</label>
-                                                                    <input class="form-control" type="text" name="Pmarca" id="Pmarca" maxLength="50"
-                                                                    placeholder="Marca">
-                                                            </div>
-                                                        </div> 
                                                     </div>
+
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Modelo</label>
-                                                                <input class="form-control" type="text" name="Pmodelo" id="Pmodelo" maxLength="50"
-                                                                placeholder="Modelo">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="Parea" id="Parea" maxLength="50"
-                                                                placeholder="Area">
-                                                            </div>
-                                                        </div> 
-                                                    </div>
-                                                    <div class="row clearfix">
                                                         <div class="form-group">
-                                                            <label>Imagen</label>
-                                                            <input type="file" class="form-control-file" name="Pimagen" id="Pimagen">
-                                                            <input type="hidden" name="Pimagenactual" id="Pimagenactual">
-                                                            <br></br>
-                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Pimagenmuestra" id="Pimagenmuestra">
+                                                                <label>Descripcion:</label>
+                                                                <textarea class="form-control" rows="3" name="Adescripcion" id="Adescripcion" 
+                                                                placeholder="Enter ..."></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,7 +120,6 @@ else{
                                                             <button class="btn btn-primary" type="submit" value="" id="btnGuardar"><i class="fa fa-save"></i>
                                                                 Guardar</button>
                                                             </td>
-
                                                             <button class="btn btn-danger" onclick="cancelarfrom()" type="button"><i class="fa fa-times-circle"></i>
                                                             Cancelar</button>
                                                         </div>
@@ -173,29 +151,7 @@ else{
 <?php
 require '../footer.php';
 ?>
-
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<script type="text/javascript" src="../scripts/spantalla.js"></script>
+<script type="text/javascript" src="../scripts/sarea.js"></script>
 
 <?php
  }

@@ -51,7 +51,7 @@ Class Teclado
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT * FROM teclado";
+        $sql="SELECT * FROM teclado ORDER BY Tmarca";
         return ejecutarConsulta($sql);
     }
 

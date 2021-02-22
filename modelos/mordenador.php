@@ -81,5 +81,12 @@ Class Ordenador
          a.idpantalla=d.idpantalla";
         return ejecutarConsulta($sql);
     }
+
+    
+    public function select()
+    {
+        $sql="SELECT * FROM ordenador WHERE Oestado=1";
+        return ejecutarConsulta($sql);
+    }
 }
 ?>

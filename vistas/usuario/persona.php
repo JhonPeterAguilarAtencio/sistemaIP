@@ -1,5 +1,6 @@
 <?php
 
+//Activamos el almacenamiento en el buffer
 ob_start();
 session_start();
 
@@ -17,7 +18,7 @@ else{
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento Pantallas</h1>
+            <h1 class="h3 mb-0 text-gray-800">Mantenimiento Persona</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
         </div>
@@ -40,27 +41,29 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de Pantallas</h4>
+                                                <h4 class="header-title mt-0">Detalles de Personas</h4>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
-                                                    <thead>
-                                                            <th>Opciones</th>
-                                                            <th>codigo patrimonial</th>
-                                                            <th>marca</th>
-                                                            <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
-                                                            <th>estado</th>
+                                                        <thead>
+                                                            <th>ID</th>
+                                                            <th>DNI</th>
+                                                            <th>nombre y Apellidos</th>
+                                                            <th>Telefono</th>
+                                                            <th>Email</th>
+                                                            <th>Area</th>
+                                                            <th>Imagen</th>
+                                                            <th>Estado</th>
                                                         </thead>
                                                         <tbody>
                                                             <tfoot>
                                                             <th>ID</th>
-                                                            <th>codigo patrimonial</th>
-                                                            <th>marca</th>
-                                                            <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
-                                                            <th>estado</th>
+                                                            <th>DNI</th>
+                                                            <th>nombre, Apellidos</th>
+                                                            <th>Telefono</th>
+                                                            <th>Email</th>
+                                                            <th>Area</th>
+                                                            <th>Imagen</th>
+                                                            <th>Estado</th>
                                                             </tfoot>
                                                         </tbody>
                                                         
@@ -87,47 +90,61 @@ else{
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos de la Pantalla</h4>
+                                                <h4 class="mt-0 header-title">Datos de Persona</h4>
                                                     <div class="row clearfix">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label>Codigo patrimonial</label>
-                                                                <input type="hidden" name="idpantalla" id="idpantalla">
-                                                                <input class="form-control" type="text" name="Pcodigopatrimonial" id="Pcodigopatrimonial" 
-                                                                maxLength="50" placeholder="Codigo Patrimonial">
+                                                                <label>Dni(*):</label>
+                                                                <input type="hidden" name="idpersona" id="idpersona">
+                                                                <input class="form-control" type="text" name="PERdni" id="PERdni" 
+                                                                maxLength="50" placeholder="Dni">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
-                                                                    <label>Marca</label>
-                                                                    <input class="form-control" type="text" name="Pmarca" id="Pmarca" maxLength="50"
-                                                                    placeholder="Marca">
+                                                                    <label>Nombre</label>
+                                                                    <input class="form-control" type="text" name="PERnombre" id="PERnombre" maxLength="50"
+                                                                    placeholder="Nombre">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Apellidos</label>
+                                                                <input class="form-control" type="text" name="PERapellidos" id="PERapellidos" maxLength="50"
+                                                                placeholder="Apellidos">
                                                             </div>
                                                         </div> 
                                                     </div>
                                                     <div class="row clearfix">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Modelo</label>
-                                                                <input class="form-control" type="text" name="Pmodelo" id="Pmodelo" maxLength="50"
-                                                                placeholder="Modelo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group ">
+                                                                <label>Telefono</label>
+                                                                <input class="form-control" type="text" name="PERtelefono" id="PERtelefono" maxLength="50"
+                                                                placeholder="Telefono">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group ">
+                                                                <label>Email</label>
+                                                                <input class="form-control" type="text" name="PERemail" id="PERemail" maxLength="50"
+                                                                placeholder="Email">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Area</label>
-                                                                <input class="form-control" type="text" name="Parea" id="Parea" maxLength="50"
+                                                                <input class="form-control" type="text" name="PERarea" id="PERarea" maxLength="50"
                                                                 placeholder="Area">
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                     <div class="row clearfix">
                                                         <div class="form-group">
                                                             <label>Imagen</label>
-                                                            <input type="file" class="form-control-file" name="Pimagen" id="Pimagen">
-                                                            <input type="hidden" name="Pimagenactual" id="Pimagenactual">
+                                                            <input type="file" class="form-control-file" name="PERimagen" id="PERimagen">
+                                                            <input type="hidden" name="PERimageactual" id="PERimagnactual">
                                                             <br></br>
-                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Pimagenmuestra" id="Pimagenmuestra">
+                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="PERimagenmuestra" id="PERimagenmuestra">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,8 +212,7 @@ require '../footer.php';
         </div>
     </div>
 
-<script type="text/javascript" src="../scripts/spantalla.js"></script>
-
+<script type="text/javascript" src="../scripts/spersona.js"></script>
 <?php
  }
  ob_end_flush();

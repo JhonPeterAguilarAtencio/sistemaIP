@@ -1,13 +1,13 @@
 <?php
 
 ob_start();
-session_start();
+ session_start();
 
-if (!isset($_SESSION["Ulogin"]))
-{
-    header("Location: ../login.php");
-}
-else{
+ if (!isset($_SESSION["Ulogin"]))
+ {
+     header("Location: ../login.php");
+ }
+ else{
 
  include '../header.php';
  ?>
@@ -17,7 +17,7 @@ else{
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento Pantallas</h1>
+            <h1 class="h3 mb-0 text-gray-800">Mantenimiento de la Impresora</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
         </div>
@@ -40,7 +40,7 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de Pantallas</h4>
+                                                <h4 class="header-title mt-0">Detalles de la Impresora</h4>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
@@ -87,47 +87,49 @@ else{
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos de la Pantalla</h4>
+                                                <h4 class="mt-0 header-title">Datos de la Impresora</h4>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Codigo patrimonial</label>
-                                                                <input type="hidden" name="idpantalla" id="idpantalla">
-                                                                <input class="form-control" type="text" name="Pcodigopatrimonial" id="Pcodigopatrimonial" 
+                                                                <input type="hidden" name="idimpresora" id="idimpresora">
+                                                                <input class="form-control" type="text" name="Icodigopatrimonial" id="Icodigopatrimonial" 
                                                                 maxLength="50" placeholder="Codigo Patrimonial">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                     <label>Marca</label>
-                                                                    <input class="form-control" type="text" name="Pmarca" id="Pmarca" maxLength="50"
+                                                                    <input class="form-control" type="text" name="Imarca" id="Imarca" maxLength="50"
                                                                     placeholder="Marca">
                                                             </div>
                                                         </div> 
                                                     </div>
                                                     <div class="row clearfix">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Modelo</label>
-                                                                <input class="form-control" type="text" name="Pmodelo" id="Pmodelo" maxLength="50"
+                                                                <input class="form-control" type="text" name="Imodelo" id="Imodelo" maxLength="50"
                                                                 placeholder="Modelo">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="Parea" id="Parea" maxLength="50"
-                                                                placeholder="Area">
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <label>Seleccionar area:</label>
+                                                                <select class="form-control selectpicker" data-live-search="true" id="idarea" name="idarea">
+                                                                </select>
                                                             </div>
-                                                        </div> 
+                                                        </div>  
                                                     </div>
                                                     <div class="row clearfix">
-                                                        <div class="form-group">
-                                                            <label>Imagen</label>
-                                                            <input type="file" class="form-control-file" name="Pimagen" id="Pimagen">
-                                                            <input type="hidden" name="Pimagenactual" id="Pimagenactual">
-                                                            <br></br>
-                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Pimagenmuestra" id="Pimagenmuestra">
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <label>Imagen</label>
+                                                                <input type="file" class="form-control-file" name="Iimagen" id="Iimagen">
+                                                                <input type="hidden" name="Iimagenactual" id="Iimagenactual">
+                                                                <br></br>
+                                                                <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Iimagenmuestra" id="Iimagenmuestra">
+                                                            </div> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,7 +197,7 @@ require '../footer.php';
         </div>
     </div>
 
-<script type="text/javascript" src="../scripts/spantalla.js"></script>
+<script type="text/javascript" src="../scripts/simpresora.js"></script>
 
 <?php
  }

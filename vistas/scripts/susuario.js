@@ -1,4 +1,4 @@
-﻿var tabla;
+var tabla;
 
 //funcion que se ejecute al inicio
 function init()
@@ -12,38 +12,33 @@ function init()
     });
 
     //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigomouse", function(r){
-        $("#idmouse").html(r);
-        $('#idmouse').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigoteclado", function(r){
-        $("#idteclado").html(r);
-        $('#idteclado').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigopantalla", function(r){
-        $("#idpantalla").html(r);
-        $('#idpantalla').selectpicker('refresh');
+    $.post("../../ajax/xusuario.php?op=selectpersona", function(r){
+        $("#idpersona").html(r);
+        $('#idpersona').selectpicker('refresh');
     });
 
-    $("#Oimagenmuestra").hide();
+    $("#Uimagenmuestra").hide();
+
+    //Mostramos los permisos
+    $.post("../../ajax/xusuario.php?op=permisos&id=", function(r){
+        $("#permisos").html(r);
+        //$('#idpersona').selectpicker('refresh');
+    });
 }
 
 //funcion Limpiar
 function limpiar()
 {
-    $("#idordenador").val("");
-    $("#Ocodigopatrimonial").val("");
-    $("#Omarca").val(""); 
-    $("#Omodelo").val(""); 
-    $("#Oarea").val("");
-    $("#Oimagen").val("");
-    $("#Oimagenmuestra").attr("src","");
-    $("#Oimagenactual").val("");
-    $("#idmouse").val("");
-    $("#idteclado").val("");
-    $("#idpantalla").val("");
+    
+    $("#idpersona").val("");
+    $("#Ucargo").val(""); 
+    $("#Ulogin").val(""); 
+    $("#Uclave").val("");
+    $("#Uimagen").val("");
+    $("#Uimagenmuestra").attr("src","");
+    $("#Uimagenactual").val("");
+    $("#idusuario").val("");
+
 }
 
 //funcion mostrar formulario
@@ -88,7 +83,7 @@ function listado()
             ],
             "ajax":
             {
-                url: '../../ajax/xordenador.php?op=listar',
+                url: '../../ajax/xusuario.php?op=listar',
                 type : "get",
                 dataType : "json",
                 error: function(e){
@@ -119,7 +114,7 @@ function guardaryeditar(e)
       }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "../../ajax/xordenador.php?op=guardaryeditar",
+                url: "../../ajax/xusuario.php?op=guardaryeditar",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -144,57 +139,34 @@ function guardaryeditar(e)
 }
 
 //FUNCION PARA EDITAR DATOS
-function mostrar(idordenador)
+function mostrar(idusuario)
 {
-    $.post("../../ajax/xordenador.php?op=mostrar",{idordenador : idordenador}, function(data, status)
+    $.post("../../ajax/xusuario.php?op=mostrar",{idusuario : idusuario}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarfrom(true);
-        console.log(data);
-        $("#Ocodigopatrimonial").val(data.Ocodigopatrimonial);
-        $("#Omarca").val(data.Omarca); 
-        $("#Omodelo").val(data.Omodelo); 
-        $("#Oarea").val(data.Oarea); 
-        $("#Oimagenmuestra").show();
-        $("#Oimagenmuestra").attr("src","../../files/ordenador/"+data.Oimagen);
-        $("#Oimagenactual").val(data.Oimagen);
-        $("#idmouse").val(data.idmouse);
-        $("#idteclado").val(data.idteclado);
-        $("#idpantalla").val(data.idpantalla);
-        $("#idordenador").val(data.idordenador);
-    })
-}
-function ver(idordenador)
-{
-  
-    $.post("../../ajax/xordenador.php?op=ver",{idordenador : idordenador}, function(data, status)
-    {
-        data = JSON.parse(data);
-       // mostrarfrom(true);
-        console.log(data);
-        //ordenador
-        $("#txtmarcaordenador").val(data.Omarca);
-        $("#txtOcodigopatrimonial").val(data.Ocodigopatrimonial);
 
-        //teclado
-        $("#txtpatrimonioanlteclado").val(data.Tcodigopatrimonial);
-        $("#txtmarcateclado").val(data.Tmarca); 
+        $("#idpersona").val(data.idpersona);
+        $("#Ucargo").val(data.Ucargo); 
+        $("#Ulogin").val(data.Ulogin); 
+        $("#Uclave").val(data.Uclave); 
+        $("#Uimagenmuestra").show();
+        $("#Uimagenmuestra").attr("src","../../files/usuario/"+data.Uimagen);
+        $("#Uimagenactual").val(data.Uimagen);
+        $("#idusuario").val(data.idusuario); 
 
-       //pantalla 
+    });
 
-        $("#txtcodigopatpantalla").val(data.Pcodigopatrimonial); 
-        $("#txtmarcapantalla").val(data.Pmarca); 
-
-        //mouse 
-        $("#txtcodigomouse").val(data.Mcodigopatrimonial);
-        $("#txtmarcamouse").val(data.Mmarca);
-
-    })
+    //Mostramos los permisos
+    $.post("../../ajax/xusuario.php?op=permisos&id="+idusuario, function(r){
+        $("#permisos").html(r);
+        //$('#idpersona').selectpicker('refresh');
+    });
 }
 
 //FUNCION PARA DESACTIVAR REGISTROS
 
-function desactivar(idordenador)
+function desactivar(idusuario)
 {
     Swal.fire({
         title: '¿Estas Seguro de Desactivar?',
@@ -206,7 +178,7 @@ function desactivar(idordenador)
         confirmButtonText: 'Si, Desactivar!'
       }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../ajax/xordenador.php?op=desactivar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/xusuario.php?op=desactivar",{idusuario : idusuario}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Desactivado!',
@@ -220,7 +192,7 @@ function desactivar(idordenador)
 }
 
 //FUNCION PARA ACTIVAR REGISTROS
-function activar(idordenador)
+function activar(idusuario)
 {
     Swal.fire({
         title: '¿Estas Seguro de Activar?',
@@ -233,11 +205,11 @@ function activar(idordenador)
       }).then((result) => {
         if (result.isConfirmed) {
 
-            $.post("../../ajax/xordenador.php?op=activar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/xusuario.php?op=activar",{idusuario : idusuario}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Activado!',
-                    'El estado del Teclado',
+                    'El estado del Usuario',
                     'success'
                   )
                 tabla.ajax.reload();

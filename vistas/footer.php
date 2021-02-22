@@ -1,4 +1,16 @@
-﻿
+﻿<?php
+//Activamos el almacenamiento en el buffer
+ ob_start();
+ 
+
+ if (!isset($_SESSION["Ulogin"]))
+ {
+     header("Location: login.php");
+ }
+ else{
+
+?>
+
 <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -33,7 +45,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../../ajax/xusuario.php?op=salir">Logout</a>
                 </div>
             </div>
         </div>
@@ -158,8 +170,14 @@
 
      <script src="../../public/js/sweetalert2@10.js"></script>
 
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
 
 
 </body>
 
 </html>
+<?php
+ }
+ ob_end_flush();
+?>

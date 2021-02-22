@@ -56,5 +56,11 @@ Class Laptop
         ON a.idtipocodigo=c.idtipocodigo";
         return ejecutarConsulta($sql);
     }
+
+    public function select()
+    {
+        $sql="SELECT * FROM laptop WHERE Lestado=1";
+        return ejecutarConsulta($sql);
+    }
 }
 ?>

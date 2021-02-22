@@ -61,8 +61,7 @@
                 echo json_encode($rspta);
                 
             break;
-
-
+            
           case 'ver':
             
                 $rspta=$ordenador->ver($idordenador);
@@ -111,6 +110,8 @@
                 while ($reg = $rspta->fetch_object())
                     {
                         echo '<option value=' . $reg->idmouse . '>' . $reg->Mcodigopatrimonial . '</option>';
+                        /* Para obtener el texto */
+                       // $("#txtmarcas").val(data.Mmarca);
                     }
             break;
 

@@ -1,4 +1,4 @@
-﻿var tabla;
+var tabla;
 
 //funcion que se ejecute al inicio
 function init()
@@ -12,38 +12,26 @@ function init()
     });
 
     //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigomouse", function(r){
-        $("#idmouse").html(r);
-        $('#idmouse').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigoteclado", function(r){
-        $("#idteclado").html(r);
-        $('#idteclado').selectpicker('refresh');
-    });
-    //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xordenador.php?op=selectcodigopantalla", function(r){
-        $("#idpantalla").html(r);
-        $('#idpantalla').selectpicker('refresh');
+    $.post("../../ajax/ximpresora.php?op=selectimpresora", function(r){
+        $("#idarea").html(r);
+        $('#idarea').selectpicker('refresh');
     });
 
-    $("#Oimagenmuestra").hide();
+    $("#Iimagenmuestra").hide();
 }
 
 //funcion Limpiar
 function limpiar()
 {
-    $("#idordenador").val("");
-    $("#Ocodigopatrimonial").val("");
-    $("#Omarca").val(""); 
-    $("#Omodelo").val(""); 
-    $("#Oarea").val("");
-    $("#Oimagen").val("");
-    $("#Oimagenmuestra").attr("src","");
-    $("#Oimagenactual").val("");
-    $("#idmouse").val("");
-    $("#idteclado").val("");
-    $("#idpantalla").val("");
+    $("#idimpresora").val("");
+    $("#Icodigopatrimonial").val("");
+    $("#Imarca").val(""); 
+    $("#Imodelo").val(""); 
+    $("#idarea").val("");
+    $("#Iimagen").val("");
+    $("#Iimagenmuestra").attr("src","");
+    $("#Iimagenactual").val("");
+
 }
 
 //funcion mostrar formulario
@@ -88,7 +76,7 @@ function listado()
             ],
             "ajax":
             {
-                url: '../../ajax/xordenador.php?op=listar',
+                url: '../../ajax/ximpresora.php?op=listar',
                 type : "get",
                 dataType : "json",
                 error: function(e){
@@ -119,7 +107,7 @@ function guardaryeditar(e)
       }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "../../ajax/xordenador.php?op=guardaryeditar",
+                url: "../../ajax/ximpresora.php?op=guardaryeditar",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -144,57 +132,28 @@ function guardaryeditar(e)
 }
 
 //FUNCION PARA EDITAR DATOS
-function mostrar(idordenador)
+function mostrar(idimpresora)
 {
-    $.post("../../ajax/xordenador.php?op=mostrar",{idordenador : idordenador}, function(data, status)
+    $.post("../../ajax/ximpresora.php?op=mostrar",{idimpresora : idimpresora}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarfrom(true);
-        console.log(data);
-        $("#Ocodigopatrimonial").val(data.Ocodigopatrimonial);
-        $("#Omarca").val(data.Omarca); 
-        $("#Omodelo").val(data.Omodelo); 
-        $("#Oarea").val(data.Oarea); 
-        $("#Oimagenmuestra").show();
-        $("#Oimagenmuestra").attr("src","../../files/ordenador/"+data.Oimagen);
-        $("#Oimagenactual").val(data.Oimagen);
-        $("#idmouse").val(data.idmouse);
-        $("#idteclado").val(data.idteclado);
-        $("#idpantalla").val(data.idpantalla);
-        $("#idordenador").val(data.idordenador);
-    })
-}
-function ver(idordenador)
-{
-  
-    $.post("../../ajax/xordenador.php?op=ver",{idordenador : idordenador}, function(data, status)
-    {
-        data = JSON.parse(data);
-       // mostrarfrom(true);
-        console.log(data);
-        //ordenador
-        $("#txtmarcaordenador").val(data.Omarca);
-        $("#txtOcodigopatrimonial").val(data.Ocodigopatrimonial);
 
-        //teclado
-        $("#txtpatrimonioanlteclado").val(data.Tcodigopatrimonial);
-        $("#txtmarcateclado").val(data.Tmarca); 
-
-       //pantalla 
-
-        $("#txtcodigopatpantalla").val(data.Pcodigopatrimonial); 
-        $("#txtmarcapantalla").val(data.Pmarca); 
-
-        //mouse 
-        $("#txtcodigomouse").val(data.Mcodigopatrimonial);
-        $("#txtmarcamouse").val(data.Mmarca);
+        $("#Icodigopatrimonial").val(data.Icodigopatrimonial);
+        $("#Imarca").val(data.Mmarca); 
+        $("#Imodelo").val(data.Mmodelo); 
+        $("#idarea").val(data.idarea); 
+        $("#Iimagenmuestra").show();
+        $("#Iimagenmuestra").attr("src","../../files/impresora/"+data.Iimagen);
+        $("#Iimagenactual").val(data.Iimagen);
+        $("#idimpresora").val(data.idimpresora); 
 
     })
 }
 
 //FUNCION PARA DESACTIVAR REGISTROS
 
-function desactivar(idordenador)
+function desactivar(idimpresora)
 {
     Swal.fire({
         title: '¿Estas Seguro de Desactivar?',
@@ -206,7 +165,7 @@ function desactivar(idordenador)
         confirmButtonText: 'Si, Desactivar!'
       }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../ajax/xordenador.php?op=desactivar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/ximpresora.php?op=desactivar",{idimpresora : idimpresora}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Desactivado!',
@@ -220,7 +179,7 @@ function desactivar(idordenador)
 }
 
 //FUNCION PARA ACTIVAR REGISTROS
-function activar(idordenador)
+function activar(idimpresora)
 {
     Swal.fire({
         title: '¿Estas Seguro de Activar?',
@@ -233,7 +192,7 @@ function activar(idordenador)
       }).then((result) => {
         if (result.isConfirmed) {
 
-            $.post("../../ajax/xordenador.php?op=activar",{idordenador : idordenador}, function(e){
+            $.post("../../ajax/ximpresora.php?op=activar",{idimpresora : idimpresora}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Activado!',
