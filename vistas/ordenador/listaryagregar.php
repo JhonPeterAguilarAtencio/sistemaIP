@@ -110,29 +110,32 @@ else{
                                                         </div> 
                                                     </div>
                                                     <div class="row clearfix">
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="Oarea" id="Oarea" maxLength="50"
-                                                                placeholder="Area">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Seleccionar Codigo Mouse:</label>
-                                                                <select class="form-control selectpicker" data-live-search="true" id="idmouse" name="idmouse">
+                                                              
+                                                                <label>Seleccionar area:</label>
+                                                               
+                                                                <select class="form-control "  id="Oarea1" name="Oarea1">
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Seleccionar Codigo Mouse aaa:</label>
+                                                                <select class="form-control selectpicker" data-live-search="true" id="idmouse" name="idmouse">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                       <div class="col-md-4">
                                                             <div class="form-group ">
-                                                                <label>Marca</label>
-                                                                <input class="form-control" type="text" name="txtmarcas" id="txtmarcas" maxLength="50"
+                                                                <label>Marca mouse</label>
+                                                                <input class="form-control" type="text" name="txtmarcasmouse" id="txtmarcasmouse" maxLength="50"
                                                                 placeholder="Marca Mouse">
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row clearfix">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Selecionar Codigo P. de Teclado:</label>
@@ -143,24 +146,25 @@ else{
                                                         <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Marca</label>
-                                                                <input class="form-control" type="text" name="" id="" maxLength="50"
-                                                                placeholder="Marca Teclado">
+                                                                <input class="form-control" type="text" name="txtmarcateclado" id="txtmarcateclado" maxLength="50"
+                                                                placeholder="">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
+                                                       
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                      <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Selecionar Codigo P. de Pantalla:</label>
                                                                 <select class="form-control selectpicker" data-live-search="true" id="idpantalla" name="idpantalla">
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row clearfix">
                                                         <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Marca</label>
-                                                                <input class="form-control" type="text" name="" id="" maxLength="50"
-                                                                placeholder="Marca Pantalla">
+                                                                <input class="form-control" type="text" name="txtmarcapantalla" id="txtmarcapantalla" maxLength="50"
+                                                                placeholder="">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">

@@ -10,7 +10,7 @@
     $Lmodelo=isset($_POST["Lmodelo"])? limpiarCadena($_POST["Lmodelo"]):"";
     $Larea=isset($_POST["Larea"])? limpiarCadena($_POST["Larea"]):"";
     $Limagen=isset($_POST["Limagen"])? limpiarCadena($_POST["Limagen"]):"";
-
+    $idetipoequipo="2";
     switch ($_GET["op"]){
         //echo $_GET["op"] ? "Implemento Mouse registrado";
         case 'guardaryeditar':
@@ -31,8 +31,9 @@
             }
 
             if(empty($idlaptop)){
-                $rspta=$laptop->insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen);
-                echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                $rspta=$laptop->insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo);
+              //  echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                echo $rspta ;
             }
             else{
                 $rspta=$laptop->editar($idlaptop, $idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen);
@@ -97,5 +98,15 @@
                     }
             break;
                     
+            case 'selectArea':
+                require_once "../modelos/marea.php";
+                $Impresora = new Area();
+                $rspta = $Impresora->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
+            break;
     }
 ?>

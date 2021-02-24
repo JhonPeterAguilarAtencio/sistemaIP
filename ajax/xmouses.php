@@ -9,7 +9,7 @@
     $Mmodelo=isset($_POST["Mmodelo"])? limpiarCadena($_POST["Mmodelo"]):"";
     $Marea=isset($_POST["Marea"])? limpiarCadena($_POST["Marea"]):"";
     $Mimagen=isset($_POST["Mimagen"])? limpiarCadena($_POST["Mimagen"]):"";
-
+    
     switch ($_GET["op"]){
         //echo $_GET["op"] ? "Implemento Teclado registrado";
         case 'guardaryeditar':

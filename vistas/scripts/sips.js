@@ -6,7 +6,7 @@ function init()
     mostrarfrom(false);
     listado();
 
-    $("#formulario").on("submit",function(e)
+    $("#formulario1").on("submit",function(e)
     {
         guardaryeditar(e);
     });
@@ -14,30 +14,39 @@ function init()
     //Cargamos los items al select tipocodigo
     $.post("../../ajax/xips.php?op=selectarea", function(r){
         $("#idarea").html(r);
-        $('#idarea').selectpicker('refresh');
+       // $('#idarea').selectpicker('refresh');
     });
     //Cargamos los items al select tipocodigo
     $.post("../../ajax/xips.php?op=selectpersona", function(r){
         $("#idpersona").html(r);
-        $('#idpersona').selectpicker('refresh');
+       // $('#idpersona').selectpicker('refresh');
     });
     //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xips.php?op=selectordenador", function(r){
-        $("#idordenador").html(r);
-        $('#idordenador').selectpicker('refresh');
+    $.post("../../ajax/xips.php?op=selectipoEquipo", function(r){
+        $("#IPtipoequipo").html(r);
+      //  $('#idordenador').selectpicker('refresh');
     });
 
+    $("select[name=IPtipoequipo]").change(function () {
+       
+       var id = $('select[name=IPtipoequipo]').val(); 
+       $.post("../../ajax/xips.php?op=selecEquipos&id="+id, function(r){
+           $("#idequipos").html(r);
+      //  $('#idordenador').selectpicker('refresh');
+      });
+       //alert(id_aula)
+   });
     //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xips.php?op=selectlaptop", function(r){
-        $("#idlaptop").html(r);
-        $('#idlaptop').selectpicker('refresh');
-    });
+  //  $.post("../../ajax/xips.php?op=selectlaptop", function(r){
+   //     $("#idlaptop").html(r);
+       // $('#idlaptop').selectpicker('refresh');
+  //  });
 
     //Cargamos los items al select tipocodigo
-    $.post("../../ajax/xips.php?op=selectimpresora", function(r){
-        $("#idimpresora").html(r);
-        $('#idimpresora').selectpicker('refresh');
-    });
+   // $.post("../../ajax/xips.php?op=selectimpresora", function(r){
+     //   $("#idimpresora").html(r);
+     //   $('#idimpresora').selectpicker('refresh');
+   // });
 }
 
 //funcion Limpiar
@@ -62,12 +71,12 @@ function limpiar()
 //funcion mostrar formulario
 function mostrarfrom(flag)
 {
-    limpiar();
+   // limpiar();
     if (flag)
     {
         $("#listadoregistros").hide();
         $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled",false);
+      //  $("#btnGuardar").prop("disabled",false);
         $("#btnAgregar").hide();
 
     }
@@ -117,42 +126,35 @@ function listado()
 //funcionn para editar y guardar
 function guardaryeditar(e)
 {
+    
+alert("lllega aqui we")
     e.preventDefault(); //no se activara la accion predeterminada del evento
-    $("#btnGuardar").prop("disabled",true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar1").prop("disabled",true);
+    var formData = new FormData($("#formulario1")[0]);
 
-    Swal.fire({
-        title: '¿Estas Seguro del Registro?',
-        text: " del Teclado!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, Ok!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url: "../../ajax/xips.php?op=guardaryeditar",
-                type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-        
-                success: function(datos)
-                {
-                    //alert(datos);
-                    Swal.fire(
-                        'Registrado!',
-                        'Teclado',
-                        'success'
-                      )
-                    mostrarfrom(false);
-                    tabla.ajax.reload();
-                }
-            });
-            limpiar();
-        }
-    })
+        console.log("datos",formData)
+        $.ajax({
+            url: "../../ajax/xips.php?op=guardaryeditar",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+
+            success: function(datos)
+            {
+                console.log(datos);
+                //alert(datos); $rspta
+               alert("REgistrado",datos );
+              //  mostrarfrom(false);
+              //  tabla.ajax.reload();
+            }, error: function (request, status, error) {
+                alert("RE eroor ",);
+                alert(request.responseText);
+            }
+        }).fail(function(){
+            alert("errror");
+             		})
+     //   limpiar();
 
 }
 

@@ -124,10 +124,10 @@
                                                     </div>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
-                                                            <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="Larea" id="Larea" maxLength="50"
-                                                                    placeholder="Area">
+                                                            <div class="form-group ">                                                               
+                                                                <label>Seleccionar area:</label>
+                                                                <select class="form-control selectpicker" data-live-search="true" id="Larea" name="Larea">
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

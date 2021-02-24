@@ -6,6 +6,13 @@ function init()
     mostrarfrom(false);
     listado();
 
+    $.post("../../ajax/xordenador.php?op=datos", function(r){
+        //alert("AAAAAA");
+      //  $("#perra").html(r);
+        $("#Oarea1").html(r);
+        $("#Oarea1").selectpicker('refresh');
+    });
+
     $("#formulario").on("submit",function(e)
     {
         guardaryeditar(e);
@@ -27,6 +34,59 @@ function init()
         $('#idpantalla').selectpicker('refresh');
     });
 
+    $("select[name=idmouse]").change(function () {        
+          var id = $('select[name=idmouse]').val();   
+          var data={idmouse:id}
+           $.ajax({
+            url: "../../ajax/xmouses.php?op=mostrar",
+            type: "POST",
+            data: data,         
+            success: function(datos)
+            {  
+                dato=jQuery.parseJSON(datos);
+			    $('#txtmarcasmouse').val(dato['Mmarca']);
+             
+            },error: function(error){
+               alert("ERror :"+error)
+            }
+        }); 
+    });
+    $("select[name=idpantalla]").change(function () {        
+          var id = $('select[name=idpantalla]').val();   
+          var data={idpantalla:id}
+           $.ajax({
+            url: "../../ajax/xpantalla.php?op=mostrar",
+            type: "POST",
+            data: data,         
+            success: function(datos)
+            {  // console.log(datos);
+                dato=jQuery.parseJSON(datos);
+               
+			   $('#txtmarcapantalla').val(dato['Pmarca']);
+             
+            },error: function(error){
+               alert("ERror :"+error)
+            }
+        }); 
+    });
+    $("select[name=idteclado]").change(function () {        
+        var id = $('select[name=idteclado]').val();   
+        var data={idteclado:id}
+         $.ajax({
+          url: "../../ajax/xteclado.php?op=mostrar",
+          type: "POST",
+          data: data,         
+          success: function(datos)
+          {   //console.log(datos);
+              dato=jQuery.parseJSON(datos);
+             
+             $('#txtmarcateclado').val(dato['Tmarca']);
+           
+          },error: function(error){
+             alert("ERror :"+error)
+          }
+      }); 
+  });
     $("#Oimagenmuestra").hide();
 }
 
@@ -127,12 +187,8 @@ function guardaryeditar(e)
         
                 success: function(datos)
                 {
-                    //alert(datos);
-                    Swal.fire(
-                        'Registrado!',
-                        'Teclado',
-                        'success'
-                      )
+                  //  alert(datos);
+                   
                     mostrarfrom(false);
                     tabla.ajax.reload();
                 }
@@ -151,17 +207,17 @@ function mostrar(idordenador)
         data = JSON.parse(data);
         mostrarfrom(true);
         console.log(data);
-        $("#Ocodigopatrimonial").val(data.Ocodigopatrimonial);
-        $("#Omarca").val(data.Omarca); 
-        $("#Omodelo").val(data.Omodelo); 
-        $("#Oarea").val(data.Oarea); 
+        $("#Ocodigopatrimonial").val(data.Codigopatrimonial);
+        $("#Omarca").val(data.Marca); 
+        $("#Omodelo").val(data.Modelo); 
+        $("#Oarea").val(data.Area); 
         $("#Oimagenmuestra").show();
-        $("#Oimagenmuestra").attr("src","../../files/ordenador/"+data.Oimagen);
-        $("#Oimagenactual").val(data.Oimagen);
+        $("#Oimagenmuestra").attr("src","../../files/ordenador/"+data.Imagen);
+        $("#Oimagenactual").val(data.Imagen);
         $("#idmouse").val(data.idmouse);
         $("#idteclado").val(data.idteclado);
         $("#idpantalla").val(data.idpantalla);
-        $("#idordenador").val(data.idordenador);
+        $("#idordenador").val(data.idequipo); 
     })
 }
 function ver(idordenador)
@@ -173,18 +229,16 @@ function ver(idordenador)
        // mostrarfrom(true);
         console.log(data);
         //ordenador
-        $("#txtmarcaordenador").val(data.Omarca);
-        $("#txtOcodigopatrimonial").val(data.Ocodigopatrimonial);
+        $("#txtmarcaordenador").val(data.Marca);
+        $("#txtOcodigopatrimonial").val(data.Codigopatrimonial);
 
         //teclado
         $("#txtpatrimonioanlteclado").val(data.Tcodigopatrimonial);
-        $("#txtmarcateclado").val(data.Tmarca); 
+        $("#txtmarcateclado1").val(data.teclados); 
 
        //pantalla 
-
         $("#txtcodigopatpantalla").val(data.Pcodigopatrimonial); 
-        $("#txtmarcapantalla").val(data.Pmarca); 
-
+        $("#txtmarcapantalla1").val(data.Pmarca); 
         //mouse 
         $("#txtcodigomouse").val(data.Mcodigopatrimonial);
         $("#txtmarcamouse").val(data.Mmarca);

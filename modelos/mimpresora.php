@@ -12,10 +12,15 @@ Class Impresora
     }
 
     //Implementacion un metodo para insertar registros
-    public function insertar($Icodigopatrimonial, $Imarca, $Imodelo, $idarea, $Iimagen)
+    public function insertar($Icodigopatrimonial, $Imarca, $Imodelo, $idarea, $Iimagen,$idtipoequasdadsadsasdipo)
     {
-        $sql="INSERT INTO impresora(Icodigopatrimonial, Imarca, Imodelo, idarea, Iimagen, Iestado)
-        VALUES ('$Icodigopatrimonial', '$Imarca', '$Imodelo', '$idarea', '$Iimagen','1')";
+        //$sql="INSERT INTO equipo(Icodigopatrimonial, Imarca, Imodelo, idarea, Iimagen, Iestado)
+       // VALUES ('$Icodigopatrimonial', '$Imarca', '$Imodelo', '$idarea', '$Iimagen','1')";
+        //return ejecutarConsulta($sql);
+         $Partes=false;
+         $Perteneciente="propio";   
+        $sql="INSERT INTO equipo(IdtipoEquipo, Codigopatrimonial, Marca, Modelo, Area, Imagen,Estado,Partes,Perteneciente)
+        VALUES ('$idtipoequasdadsadsasdipo', '$Icodigopatrimonial','$Imarca', '$Imodelo', '$idarea', '$Iimagen','1','$Partes','$Perteneciente')";
         return ejecutarConsulta($sql);
     }
 

@@ -9,7 +9,7 @@
     $Imodelo=isset($_POST["Imodelo"])? limpiarCadena($_POST["Imodelo"]):"";
     $idarea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
     $Iimagen=isset($_POST["Iimagen"])? limpiarCadena($_POST["Iimagen"]):"";
-
+    $idtipoequipo="3";
     switch ($_GET["op"]){
         //echo $_GET["op"] ? "Implemento Teclado registrado";
         case 'guardaryeditar':
@@ -30,7 +30,7 @@
             }
 
             if(empty($idimpresora)){
-                $rspta=$Impresora->insertar($Icodigopatrimonial, $Imarca, $Imodelo, $idarea, $Iimagen);
+                $rspta=$Impresora->insertar($Icodigopatrimonial, $Imarca, $Imodelo, $idarea, $Iimagen,$idtipoequipo);
                 echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
             }
             else{

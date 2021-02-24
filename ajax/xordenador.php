@@ -1,19 +1,23 @@
 
 <?php
     require_once "../modelos/mordenador.php";
+    require_once "../modelos/PartesEquipo.php";
 
     $ordenador=new Ordenador();
-
+   
     $idordenador=isset($_POST["idordenador"])? limpiarCadena($_POST["idordenador"]):"";
-    $Ocodigopatrimonial=isset($_POST["Ocodigopatrimonial"])? limpiarCadena($_POST["Ocodigopatrimonial"]):"";
-    $Omarca=isset($_POST["Omarca"])? limpiarCadena($_POST["Omarca"]):"";
-    $Omodelo=isset($_POST["Omodelo"])? limpiarCadena($_POST["Omodelo"]):"";
-    $Oarea=isset($_POST["Oarea"])? limpiarCadena($_POST["Oarea"]):"";
-    $Oimagen=isset($_POST["Oimagen"])? limpiarCadena($_POST["Oimagen"]):"";
+    $Codigopatrimonial=isset($_POST["Ocodigopatrimonial"])? limpiarCadena($_POST["Ocodigopatrimonial"]):"";
+    $Marca=isset($_POST["Omarca"])? limpiarCadena($_POST["Omarca"]):"";
+    $Modelo=isset($_POST["Omodelo"])? limpiarCadena($_POST["Omodelo"]):"";
+    $Area=isset($_POST["Oarea"])? limpiarCadena($_POST["Oarea"]):"";
+    $Estado="1";
+    $Partes=true;
+    $Perteneciente="Propio";
+    $Imagen=isset($_POST["Oimagen"])? limpiarCadena($_POST["Oimagen"]):"";
     $idmouse=isset($_POST["idmouse"])? limpiarCadena($_POST["idmouse"]):"";
     $idteclado=isset($_POST["idteclado"])? limpiarCadena($_POST["idteclado"]):"";
     $idpantalla=isset($_POST["idpantalla"])? limpiarCadena($_POST["idpantalla"]):"";
-    
+    $idetipoequipo="1";
 
     switch ($_GET["op"]){
         //echo $_GET["op"] ? "Implemento Mouse registrado";
@@ -35,9 +39,14 @@
             }
 
             if(empty($idordenador)){
-                $rspta=$ordenador->insertar($Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen, $idmouse,
-                 $idteclado, $idpantalla);
-                echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                $rspta=$ordenador->insertar($idetipoequipo, $Codigopatrimonial, $Marca, $Modelo, $Area, $Imagen, $Estado,$Partes,$Perteneciente);
+              //  $rspta=$ordenador->insertar($Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen, $idmouse,
+             //    $idteclado, $idpantalla,$idetipoequipo);
+                 $PartesEqui= new PartesEquipo();
+                 $id="1";
+                 $resul=  $PartesEqui->Ingresar($rspta,$idteclado,$idmouse,$idpantalla,"12/12/2020");
+                 echo  $resul;              
+               // echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
             }
             else{
                 $rspta=$ordenador->editar($idordenador, $Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen, $idmouse,
@@ -76,18 +85,18 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->Oestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idordenador.')"><i class="fa fa-toggle-off"></i></button>' :
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idordenador.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idordenador.')"><i class="fa fa-check"></i></button>',
-                        "1"=>$reg->Ocodigopatrimonial,
-                        "2"=>$reg->Omarca,
-                        "3"=>$reg->Omodelo,
-                        "4"=>$reg->Oarea,   
-                        "5"=>"<img src='../../files/ordenador/".$reg->Oimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
-                        "6"=>($reg->Oestado)?'<span class="badge badge-primary">Activado</span>':
+                        "0"=>($reg->Estado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'. 
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idequipo.')"><i class="fa fa-toggle-off"></i></button>' :
+                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-primary" onclick="activar('.$reg->idequipo.')"><i class="fa fa-check"></i></button>',
+                        "1"=>$reg->Codigopatrimonial,
+                        "2"=>$reg->Marca,
+                        "3"=>$reg->Modelo,
+                        "4"=>$reg->Area,   
+                        "5"=>"<img src='../../files/ordenador/".$reg->Imagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
+                        "6"=>($reg->Estado)?'<span class="badge badge-primary">Activado</span>':
                         '<span class="right badge badge-danger">Desactivado</span>'
                     );
                 }
@@ -136,6 +145,16 @@
                 while ($reg = $rspta->fetch_object())
                     {
                         echo '<option value=' . $reg->idpantalla . '>' . $reg->Pcodigopatrimonial . '</option>';
+                    }
+            break;
+            case 'datos':
+                require_once "../modelos/marea.php";
+                $Impresora = new Area();
+                $rspta = $Impresora->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
                     }
             break;
     }

@@ -12,10 +12,17 @@ Class Laptop
     }
 
     //Implementacion un metodo para insertar registros
-    public function insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen)
+                  //insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo);
+    public function insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo)
     {
-        $sql="INSERT INTO laptop(idtipocodigo, Lcodigo, Lmarca, Lmodelo, Larea, Limagen, Lestado)
-        VALUES ('$idtipocodigo', '$Lcodigo', '$Lmarca', '$Lmodelo', '$Larea', '$Limagen','1')";
+       // $sql="INSERT INTO equipo(idtipocodigo, Lcodigo, Lmarca, Lmodelo, Larea, Limagen, Lestado)
+       // VALUES ('$idtipocodigo', '$Lcodigo', '$Lmarca', '$Lmodelo', '$Larea', '$Limagen','1')";
+        //return ejecutarConsulta($sql);
+        $partes=false;
+        $Perteneciente="otro";
+        $sql="INSERT INTO equipo(IdtipoEquipo, Codigopatrimonial, Marca, Modelo, Area, Imagen, Estado,Partes,Perteneciente)
+        VALUES ('$idetipoequipo', '$Lcodigo', '$Lmarca', '$Lmodelo', '$Larea','$Limagen','1','$partes','$Perteneciente')";
+        //return $idtipocodigo;
         return ejecutarConsulta($sql);
     }
 

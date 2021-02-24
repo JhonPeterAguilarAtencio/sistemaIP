@@ -90,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" disabled id="txtmarcateclado">
+                                <input type="text" class="form-control" disabled id="txtmarcateclado1">
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control"  disabled name="txtmarcapantalla" id="txtmarcapantalla">
+                                <input type="text" class="form-control"  disabled name="txtmarcapantalla1" id="txtmarcapantalla1">
                             </div>
                         </div>
                     </div>

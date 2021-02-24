@@ -13,14 +13,25 @@
     }
 
     if (!function_exists('ejecutarConsulta'))
-    {
+    {         
         function ejecutarConsulta($sql)
         {
             global $conexion;
-            $query = $conexion->query($sql);
+            $query = $conexion->query($sql);  
             return $query;
         }
 
+        function ejecutarConsulta2($sql)
+        {
+            global $conexion;                      
+            if (mysqli_query($conexion, $sql)) {
+                $last_id = mysqli_insert_id($conexion);
+            
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+          return $last_id;
+        }
         function ejecutarConsultaSimpleFila($sql)
         {
             global $conexion;

@@ -5,6 +5,7 @@
 
     $idips=isset($_POST["idips"])? limpiarCadena($_POST["idips"]):"";
     $idarea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
+    echo  $idarea;
     $idpersona=isset($_POST["idpersona"])? limpiarCadena($_POST["idpersona"]):"";
     $IPtipoequipo=isset($_POST["IPtipoequipo"])? limpiarCadena($_POST["IPtipoequipo"]):"";
     $idlaptop=isset($_POST["idlaptop"])? limpiarCadena($_POST["idlaptop"]):"";
@@ -25,7 +26,7 @@
             if(empty($idips)){
                 $rspta=$ips->insertar($idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
                 $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial);
-                echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
             }
             else{
                 $rspta=$ips->editar($idips, $idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
@@ -104,7 +105,7 @@
                        // $("#txtmarcas").val(data.Mmarca);
                     }
             break;
-
+           // idarea
             case 'selectpersona':
                 require_once "../modelos/mpersona.php";
                 $Persona = new Persona();
@@ -150,6 +151,31 @@
                 while ($reg = $rspta->fetch_object())
                     {
                         echo '<option value=' . $reg->idimpresora . '>' . $reg->Icodigopatrimonial . '</option>';
+                    }
+            break;
+            case 'selectipoEquipo':
+                require_once "../modelos/mtipoEquipo.php";
+              
+                $tipo = new tipoEquipo();
+
+                $rspta = $tipo->select();
+
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idtipo . '>' . $reg->description . '</option>';
+                    }
+            break;
+
+            case 'selecEquipos':
+                require_once "../modelos/mtipoEquipo.php";
+                $id=$_GET["id"];
+                $tipo = new tipoEquipo();
+
+                $rspta = $tipo->ListarTipoDeEquipo($id);
+
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idequipo . '>' .$reg->Codigopatrimonial.'-'.$reg->Marca . '</option>';
                     }
             break;
     }

@@ -47,10 +47,9 @@ else{
                                                         <th>nombre</th>
                                                     </thead>
                                                         <tbody>
-                                                            <tfoot>
-                                                            <th>ID</th>
-                                                            <th>nombre</th>
-                                                            </tfoot>
+                                                         
+                                                        
+                                                           
                                                         </tbody>
                                                     </table>
                                                 </div>

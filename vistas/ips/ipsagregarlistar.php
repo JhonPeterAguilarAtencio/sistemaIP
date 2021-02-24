@@ -84,7 +84,7 @@ else{
                             <div class="row">
                                 <div class="col-md-12 col-lg-12">
                                     <div class="card">
-                                        <form name="formulario" id="formulario" method="POST">
+                                        <form name="formulario1" id="formulario1" method="POST">
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
@@ -109,40 +109,22 @@ else{
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                            <label>Selecionar Equipo:(*)</label>
+                                                            <label>Selecionar Tipo Equipo:(*)</label>
                                                                 <select class="form-control select-picker" data-live-search="true" id="IPtipoequipo" name="IPtipoequipo">
-                                                                <option value="Laptop">Laptop</option>
-                                                                <option value="Ordenador">Ordenador</option>
-                                                                <option value="Impresora">Impresora</option>
+                                                             
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
-                                                                <label>Selecionar Laptop:(*)</label>
-                                                                    <select class="form-control selectpicker" data-live-search="true" id="idlaptop" name="idlaptop">
+                                                                <label>Selecionar Equip:(*)</label>
+                                                                    <select class="form-control selectpicker" data-live-search="true" id="idequipos" name="idequipos">
                                                                     </select>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="row clearfix">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group ">
-                                                            <label>Selecionar Ordenador:(*)</label>
-                                                                    <select class="form-control selectpicker" data-live-search="true" id="idordenador" name="idordenador">
-                                                                    </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Selecionar Impresora:(*)</label>
-                                                                <select class="form-control selectpicker" data-live-search="true" id="idimpresora" name="idimpresora">
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
+                                                  
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
@@ -206,7 +188,7 @@ else{
                                                     <div class="row clearfix text-right  ">
                                                         <div class="form-group mb-0">
                                                             <td class="border-0">
-                                                            <button class="btn btn-primary" type="submit" value="" id="btnGuardar"><i class="fa fa-save"></i>
+                                                            <button class="btn btn-primary" type="submit" value="" id="btnGuarda1r"><i class="fa fa-save"></i>
                                                                 Guardar</button>
                                                             </td>
 
@@ -268,3 +250,8 @@ require '../footer.php';
  }
  ob_end_flush();
 ?>
+
+<script >
+
+
+</script>

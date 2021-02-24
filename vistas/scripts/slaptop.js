@@ -16,7 +16,10 @@ function init()
         $("#idtipocodigo").html(r);
         $('#idtipocodigo').selectpicker('refresh');
     });
-
+    $.post("../../ajax/xlaptop.php?op=selectArea", function(r){
+        $("#Larea").html(r);
+        $('#Larea').selectpicker('refresh');
+    });
     $("#Limagenmuestra").hide();
 }
 
@@ -119,7 +122,7 @@ function guardaryeditar(e)
                     //alert(datos);
                     Swal.fire(
                         'Registrado!',
-                        'Teclado',
+                         datos,
                         'success'
                       )
                     mostrarfrom(false);
