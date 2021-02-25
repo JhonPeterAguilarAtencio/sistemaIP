@@ -49,8 +49,9 @@
                // echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
             }
             else{
-                $rspta=$ordenador->editar($idordenador, $Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen, $idmouse,
-                $idteclado, $idpantalla);
+               // $rspta=$ordenador->editar($idordenador, $Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen, $idmouse,
+              //  $idteclado, $idpantalla);
+                $respt1=$ordenador->editar($idordenador,$idetipoequipo, $Codigopatrimonial, $Marca, $Modelo, $Area, $Imagen, $Estado,$Partes,$Perteneciente);
                 echo $rspta ? "Implemento Teclado actualizado" : "Implemento teclado no se pudo actualizado";
             }
             break;

@@ -5,12 +5,10 @@
 
     $idips=isset($_POST["idips"])? limpiarCadena($_POST["idips"]):"";
     $idarea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
-    echo  $idarea;
+   
     $idpersona=isset($_POST["idpersona"])? limpiarCadena($_POST["idpersona"]):"";
-    $IPtipoequipo=isset($_POST["IPtipoequipo"])? limpiarCadena($_POST["IPtipoequipo"]):"";
-    $idlaptop=isset($_POST["idlaptop"])? limpiarCadena($_POST["idlaptop"]):"";
-    $idordenador=isset($_POST["idordenador"])? limpiarCadena($_POST["idordenador"]):"";
-    $idimpresora=isset($_POST["idimpresora"])? limpiarCadena($_POST["idimpresora"]):"";
+    $idequipo=isset($_POST["idequipos"])? limpiarCadena($_POST["idequipos"]):"";
+    $idTipoEquipo =isset($_POST["IPtipoequipo"])? limpiarCadena($_POST["IPtipoequipo"]):"";
     $IPnumips=isset($_POST["IPnumips"])? limpiarCadena($_POST["IPnumips"]):"";
     $IPnumdns=isset($_POST["IPnumdns"])? limpiarCadena($_POST["IPnumdns"]):"";
     $IPnumproxy=isset($_POST["IPnumproxy"])? limpiarCadena($_POST["IPnumproxy"]):"";
@@ -24,14 +22,12 @@
         case 'guardaryeditar':
 
             if(empty($idips)){
-                $rspta=$ips->insertar($idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
-                $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial);
+                $rspta=$ips->insertar($idarea, $idpersona, $idequipo,$IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo);
                 echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
             }
             else{
-                $rspta=$ips->editar($idips, $idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
-                $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial);
-                echo $rspta ? "Implemento Teclado actualizado" : "Implemento teclado no se pudo actualizado";
+                $rspta=$ips->editar($idips, $idarea, $idpersona, $idequipo,$IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo);
+                echo $rspta ? "Implemento  actualizado" : "Implemento  no se pudo actualizado";
             }
             break;
         case 'desactivar':
@@ -66,14 +62,14 @@
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
                         "0"=>($reg->IPestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-danger" onclick="desactivar('.$reg->idips.')"><i class="fa fa-toggle-off"></i></button>' :
                         '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idordenador.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-primary" onclick="activar('.$reg->idips.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Asiglas,
                         "2"=>$reg->Anombre,
-                        "3"=>$reg->IPtipoequipo,
+                        "3"=>$reg->description,
                         "4"=>$reg->IPnumips,
                         "5"=>$reg->PERnombre,
                         "6"=>$reg->IPusuariocredencial,

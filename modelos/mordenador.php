@@ -35,11 +35,11 @@ Class Ordenador
         }*/
 
     //metodo para editar registros
-    public function editar($idordenador, $Ocodigopatrimonial, $Omarca, $Omodelo, $Oarea, $Oimagen,
-     $idmouse, $idteclado, $idpantalla)
+    public function editar($idEequipo, $IdtipoEquipo, $Codigopatrimonial, $Marca, $Modelo, $Area, $Imagen, $Estado,
+    $Partes,$Perteneciente)
     {
-        $sql="UPDATE ordenador SET Ocodigopatrimonial='$Ocodigopatrimonial', Omarca='$Omarca', Omodelo='$Omodelo', Oarea='$Oarea',
-         Oimagen='$Oimagen', idmouse='$idmouse', idteclado='$idteclado', idpantalla='$idpantalla' WHERE idordenador='$idordenador'";
+        $sql="UPDATE Equipo SET IdtipoEquipo='$IdtipoEquipo', Codigopatrimonial='$Codigopatrimonial', Marca='$Marca', Modelo='$Modelo',
+         Area='$Area', Imagen='$Imagen', Estado='$Estado', Partes='$Partes' WHERE idequipo='$idEequipo'";
         return ejecutarConsulta($sql);
     }
 

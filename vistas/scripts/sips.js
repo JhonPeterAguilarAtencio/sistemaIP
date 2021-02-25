@@ -127,7 +127,7 @@ function listado()
 function guardaryeditar(e)
 {
     
-alert("lllega aqui we")
+//alert("lllega aqui we")
     e.preventDefault(); //no se activara la accion predeterminada del evento
     $("#btnGuardar1").prop("disabled",true);
     var formData = new FormData($("#formulario1")[0]);
@@ -168,10 +168,14 @@ function mostrar(idips)
         console.log(data);
         $("#idarea").val(data.idarea);
         $("#idpersona").val(data.idpersona); 
-        $("#IPtipoequipo").val(data.IPtipoequipo); 
-        $("#idlaptop").val(data.idlaptop);
-        $("#idordenador").val(data.idordenador); 
-        $("#idimpresora").val(data.idimpresora); 
+        $("#IPtipoequipo").val(data.idTipoEQuipo); 
+     
+        $.get("../../ajax/xips.php?op=selecEquipos&id="+data.idTipoEQuipo, function(r){
+            $("#idequipos").html(r);
+
+            $("#idequipos").val(data.idequipo); 
+       
+       });
         $("#IPnumips").val(data.IPnumips); 
         $("#IPnumdns").val(data.IPnumdns); 
         $("#IPnumproxy").val(data.IPnumproxy);

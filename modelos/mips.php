@@ -12,13 +12,17 @@ Class IPS
     }
 
     //Implementacion un metodo para insertar registros
-    public function insertar($idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
-    $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial)
+    public function insertar($idarea, $idpersona, $idequipo, $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo)
     {
-        $sql="INSERT INTO ips(idarea, idpersona, IPtipoequipo, idlaptop, idordenador, idimpresora, 
-        IPnumips, IPnumdns, IPnumproxy, IPnumpuertoproxy, IPusuariocredencial, IPclavecreencial, IPestado)
-        VALUES ('$idarea', '$idpersona', '$IPtipoequipo', '$idlaptop', '$idordenador', '$idimpresora', 
-    '$IPnumips', '$IPnumdns', '$IPnumproxy', '$IPnumpuertoproxy', '$IPusuariocredencial', '$IPclavecreencial', '1')";
+        ///$sql="INSERT INTO ips(idarea, idpersona, IPtipoequipo, idlaptop, idordenador, idimpresora, 
+        ///IPnumips, IPnumdns, IPnumproxy, IPnumpuertoproxy, IPusuariocredencial, IPclavecreencial, IPestado)
+        ///VALUES ('$idarea', '$idpersona', '$IPtipoequipo', '$idlaptop', '$idordenador', '$idimpresora', 
+       ///'$IPnumips', '$IPnumdns', '$IPnumproxy', '$IPnumpuertoproxy', '$IPusuariocredencial', '$IPclavecreencial', '1')";
+       /// return ejecutarConsulta($sql);
+
+
+        $sql="INSERT INTO ips2(idarea, idpersona, idequipo, IPnumips, IPnumdns, IPnumproxy, IPnumpuertoproxy, IPusuariocredencial, IPclavecreencial, IPestado,idTipoEQuipo)
+        VALUES ('$idarea', '$idpersona', '$idequipo', '$IPnumips', '$IPnumdns', '$IPnumproxy', '$IPnumpuertoproxy', '$IPusuariocredencial', '$IPclavecreencial', '1','$idTipoEquipo')";
         return ejecutarConsulta($sql);
     }
 
@@ -26,9 +30,8 @@ Class IPS
     public function editar($idips, $idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
     $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial)
     {
-        $sql="UPDATE ips SET idarea='$idarea', idpersona='$idpersona', IPtipoequipo='$IPtipoequipo', 
-         idlaptop='$idlaptop',
-         idordenador='$idordenador', idimpresora='$idimpresora', IPnumips='$IPnumips', IPnumdns='$IPnumdns',
+        $sql="UPDATE ips2 SET idarea='$idarea', idpersona='$idpersona', idequipo='$idequipo',      
+         IPnumips='$IPnumips', IPnumdns='$IPnumdns',
          IPnumproxy='$IPnumproxy', IPnumpuertoproxy='$IPnumpuertoproxy', IPusuariocredencial='$IPusuariocredencial',
          IPclavecreencial='$IPclavecreencial' WHERE idips='$idips'";
         return ejecutarConsulta($sql);
@@ -51,18 +54,30 @@ Class IPS
     //metodo para mostrar los datos de un registro a modificar
     public function mostrar($idips)
     {
-        $sql="SELECT * FROM ips WHERE idips='$idips'";
+        $sql="SELECT * FROM ips2 WHERE idips='$idips'";
         return ejecutarConsultaSimpleFila($sql);
     }
     
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT a.idips,b.Asiglas,b.Anombre,a.IPtipoequipo,a.IPnumips,c.PERnombre,a.IPusuariocredencial,
+        $sql="SELECT  a.idips,b.Asiglas,b.Anombre,a.IPtipoequipo,a.IPnumips,c.PERnombre,a.IPusuariocredencial,
         c.PERcargo, a.IPestado FROM ips a INNER JOIN areaIP b
         ON a.idarea=b.idarea INNER JOIN persona c ON a.idpersona=c.idpersona INNER JOIN laptop d ON
          a.idlaptop=d.idlaptop";
-        return ejecutarConsulta($sql);
+
+         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.description,ip.IPnumips,p.PERnombre,p.PERcargo,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
+
+         INNER JOIN areaip AS are
+         ON ip.idarea = are.idarea
+         INNER JOIN equipo AS eq
+         ON ip.idequipo=eq.idequipo
+         INNER JOIN persona AS p
+         ON ip.idpersona = p.idpersona
+         INNER JOIN tipoequipo AS tipo
+         ON ip.idTipoEQuipo= tipo.idtipo";
+
+        return ejecutarConsulta($sql2);
     }
 }
 ?>
