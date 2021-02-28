@@ -167,7 +167,7 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"><i class="fa fa-cogs"></i>  Mantenimiento Equipos</h6>
-                        <a class="collapse-item" href="../sistema/areas.php"><i class="fas fa-fw fa-sitemap"></i>  Registrar Equipos</a>
+                        <a class="collapse-item" href="../equipos/Eagregarlistar.php"><i class="fas fa-fw fa-sitemap"></i>  Registrar Equipos</a>
                         <a class="collapse-item" href="../teclado/listar.php"><i class="fas fa-fw fa-keyboard"></i> Registrar Teclados</a>
                         <a class="collapse-item" href="../pantalla/listaryagregar.php"><i class="fas fa-fw fa-desktop"></i> Registrar Pantallas</a>
                         <a class="collapse-item" href="../mouse/listaryagregar.php"><i class="fas fa-fw fa-rocket"></i> Registrar Mouse</a>
