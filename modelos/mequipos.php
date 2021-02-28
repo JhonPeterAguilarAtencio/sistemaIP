@@ -3,7 +3,7 @@
 //Incluir inicialmente la conexion a la base de datos
 require "../config/conexion.php";
 
-Class Laptop
+Class Equipos
 {
     //Implementacion nuestro constructor
     public function __construct()
@@ -13,7 +13,7 @@ Class Laptop
 
     //Implementacion un metodo para insertar registros
                   //insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo);
-    public function insertar($Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo)
+    public function insertar($idtipocodigo, $Lcodigo, $Lmarca, $Lmodelo, $Larea, $Limagen,$idetipoequipo)
     {
        // $sql="INSERT INTO equipo(idtipocodigo, Lcodigo, Lmarca, Lmodelo, Larea, Limagen, Lestado)
        // VALUES ('$idtipocodigo', '$Lcodigo', '$Lmarca', '$Lmodelo', '$Larea', '$Limagen','1')";

@@ -111,7 +111,7 @@
             <!-- Nav Item - Menu WILAN 2-->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                    aria-expanded="true" aria-controls="collapseTree">
                     <i class="fas fa-users fa-cog"></i>
                     <span>Registro Usuarios</span>
                 </a>
@@ -136,7 +136,7 @@
             <!-- Nav Item - Menu WILAN 2-->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTre"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                    aria-expanded="true" aria-controls="collapseTre">
                     <i class="fas  fa-cogs fa-cog"></i>
                     <span>Mantenimiento sistema</span>
                 </a>
@@ -155,7 +155,27 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 Mantenimiento de Equipos
-            </div>  
+            </div>
+
+            <!-- Nav Item - Menu WILAN 2-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fas  fa-cogs fa-cog"></i>
+                    <span>Mantenimiento Equipos</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"><i class="fa fa-cogs"></i>  Mantenimiento Equipos</h6>
+                        <a class="collapse-item" href="../sistema/areas.php"><i class="fas fa-fw fa-sitemap"></i>  Registrar Equipos</a>
+                        <a class="collapse-item" href="../teclado/listar.php"><i class="fas fa-fw fa-keyboard"></i> Registrar Teclados</a>
+                        <a class="collapse-item" href="../pantalla/listaryagregar.php"><i class="fas fa-fw fa-desktop"></i> Registrar Pantallas</a>
+                        <a class="collapse-item" href="../mouse/listaryagregar.php"><i class="fas fa-fw fa-rocket"></i> Registrar Mouse</a>
+                    </div>
+                </div>
+            </li>
+
+
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">

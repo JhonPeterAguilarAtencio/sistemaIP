@@ -40,14 +40,14 @@ Class IPS
     //metodo para desactivar  
     public function desactivar($idips)
     {
-        $sql="UPDATE ips SET IPestado='0' WHERE idips='$idips'";
+        $sql="UPDATE ips2 SET IPestado='0' WHERE idips='$idips'";
         return ejecutarConsulta($sql);
     }
 
     //metodo para activar
     public function activar($idips)
     {
-        $sql="UPDATE ips SET IPestado='1' WHERE idips='$idips'";
+        $sql="UPDATE ips2 SET IPestado='1' WHERE idips='$idips'";
         return ejecutarConsulta($sql);
     }
 
