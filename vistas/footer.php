@@ -156,18 +156,14 @@
                 <div class="modal-body">
                     <form>
                     <div class="row clearfix">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
-                                <br>
-                                <input type="hidden" name="idips" id="idips">
-                                <label for="recipient-name"  id="txt" class="col-form-label"></label>
-                            </div>
-                        </div>
                         <label>Detalle de IPS</label>
                         <div class="row clearfix">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
+                                    <br>
+                                    <input type="hidden" name="idips" id="idips">
+                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
                                     <label for="recipient-name" class="col-form-label">Equipo:</label>
                                         <br>
                                         <label for="recipient-name"  id="txt" class="col-form-label"></label>
@@ -200,7 +196,7 @@
                         </div>
                         <label>Detalle de Persona</label>
                         <div class="row clearfix">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                                         <br>
