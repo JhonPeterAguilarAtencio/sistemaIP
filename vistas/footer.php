@@ -164,7 +164,6 @@
                                 
                                     <label for="recipient-name"  id="txt0" class="col-form-label"></label>
                                     <br>
-                                    <hr class="dotted">
                                     <label for="recipient-name" class="col-form-label">Equipo:</label>
                                         <br>
                                         <label for="recipient-name"  id="txt1" class="col-form-label"></label>
