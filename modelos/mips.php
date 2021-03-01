@@ -37,19 +37,19 @@ Class IPS
     }
 
     public function ver($id)
-    {     // $idequipo=5;
-       
-                $sql3="SELECT  eq.idequipo, eq.idtipoequipo,eq.Codigopatrimonial,eq.Marca,
-                eq.Modelo,a.Anombre,eq.Estado,eq.Partes,eq.Perteneciente  FROM equipo AS eq
-                INNER JOIN areaip AS a
-                ON eq.Area = a.idarea
-                WHERE eq.idequipo='$id'";   
-
-               
-               return ejecutarConsultaSimpleFila($consulta);
-    
-
-    
+    {            
+        $sql3="SELECT ip.idips, per.PERnombre,per.PERcargo, eq.Codigopatrimonial,eq.Marca,eq.Modelo, a.Anombre,tipo.TEdescription, ip.IPnumips,ip.IPnumdns,ip.IPnumproxy,ip.IPnumpuertoproxy
+        ,ip.IPusuariocredencial,ip.IPclavecreencial,ip.IPclavecreencial  FROM ips2 AS ip
+        INNER JOIN areaip AS a
+        ON ip.idarea=a.idarea
+        INNER JOIN tipoequipo AS tipo 
+           on ip.idTipoEQuipo =tipo.idtipoequipo
+           INNER JOIN persona AS per 
+          on ip.idpersona =per.idpersona           
+           INNER JOIN equipo AS eq
+           on ip.idequipo = eq.idequipo
+           WHERE ip.idips='$id'";           
+        return ejecutarConsultaSimpleFila($sql3);
     }
     //metodo para desactivar  
     public function desactivar($idips)

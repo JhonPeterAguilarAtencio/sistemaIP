@@ -161,36 +161,36 @@
                                 <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
                                     <br>
-                                    <input type="hidden" name="idips" id="idips">
-                                    <label for="recipient-name"  id="idarea" class="col-form-label"></label>
+                                
+                                    <label for="recipient-name"  id="txt0" class="col-form-label"></label>
                                     <br>
                                     <label for="recipient-name" class="col-form-label">Equipo:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt1" class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">IPS:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt2" class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">Nro DNS:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt3" class="col-form-label"></label>
                                         <br>
-                                    <label for="recipient-name" class="col-form-label">Nro Proxy:</label>
+                                    <label for="recipient-name"  class="col-form-label">Nro Proxy:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name" id="txt4"   class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">Nro Puerto Proxy:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt5" class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">Nivel Credencial:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt6" class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">Clave Credencial:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt7" class="col-form-label"></label>
                                 </div>
                             </div>
                     </div>
@@ -200,11 +200,11 @@
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt8" class="col-form-label"></label>
                                         <br>
                                     <label for="recipient-name" class="col-form-label">Cargo:</label>
                                         <br>
-                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <label for="recipient-name"  id="txt9" class="col-form-label"></label>
                                 </div>
                             </div>
                     </div>
@@ -215,15 +215,15 @@
                                 <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Equipo:</label>
                                     <br>
-                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <label for="recipient-name"  id="txt10" class="col-form-label"></label>
                                     <br>
                                 <label for="recipient-name" class="col-form-label">Marca Equipo:</label>
                                     <br>
-                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <label for="recipient-name"  id="txt11" class="col-form-label"></label>
                                     <br>
                                 <label for="recipient-name" class="col-form-label">Modelo Equipo:</label>
                                     <br>
-                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <label for="recipient-name"  id="txt12" class="col-form-label"></label>
                                 </div>
                             </div>
                         </div>

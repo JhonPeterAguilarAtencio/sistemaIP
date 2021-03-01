@@ -174,9 +174,7 @@ function mostrar(idips)
      
         $.get("../../ajax/xips.php?op=selecEquipos&id="+data.idTipoEQuipo, function(r){
             $("#idequipos").html(r);
-
-            $("#idequipos").val(data.idequipo); 
-       
+            $("#idequipos").val(data.idequipo);        
        });
         $("#IPnumips").val(data.IPnumips); 
         $("#IPnumdns").val(data.IPnumdns); 
@@ -184,6 +182,35 @@ function mostrar(idips)
         $("#IPnumpuertoproxy").val(data.IPnumpuertoproxy);
         $("#IPusuariocredencial").val(data.IPusuariocredencial);
         $("#IPclavecreencial").val(data.IPclavecreencial);
+
+      
+        $("#IPtipoequipo").prop('disabled', true);
+        $("#idequipos").prop('disabled', true);
+    })
+}
+function ver(idips)
+{
+    $.post("../../ajax/xips.php?op=ver",{idips : idips}, function(data, status)
+    {
+        data = JSON.parse(data);
+  
+        console.log(data);
+
+        $("#txt0").text(data.Anombre);
+        $("#txt1").text(data.TEdescription);
+        $("#txt2").text(data.IPnumips); 
+        $("#txt3").text(data.IPnumdns); 
+        $("#txt4").text(data.IPnumproxy); 
+        $("#txt5").text(data.IPnumpuertoproxy); 
+        $("#txt6").text(data.IPusuariocredencial); 
+
+        $("#txt7").text(data.IPclavecreencial); 
+        $("#txt8").text(data.PERnombre); 
+        $("#txt9").text(data.PERcargo); 
+        $("#txt10").text(data.Codigopatrimonial); 
+        $("#txt12").text(data.Marca); 
+        $("#txt11").text(data.Modelo); 
+      
     })
 }
 

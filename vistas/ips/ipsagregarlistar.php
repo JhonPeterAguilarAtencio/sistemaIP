@@ -93,7 +93,7 @@ else{
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Selecionar area:(*)</label>
-                                                                <input type="text" name="idips" id="idips">
+                                                                <input type="hidden" name="idips" id="idips">
                                                                 <select class="form-control selectpicker" data-live-search="true" id="idarea" name="idarea">
                                                                 </select>
                                                             </div>
