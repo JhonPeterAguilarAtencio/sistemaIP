@@ -44,23 +44,16 @@
                                                     <table id="tbllistado" class="display">
                                                     <thead>
                                                             <th>ID</th>
+                                                            <th>Tipo E.</th>
                                                             <th>codigo patrimonial</th>
                                                             <th>marca</th>
                                                             <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
+                                                            <th>area</th>                                                          
                                                             <th>estado</th>
                                                         </thead>
                                                         <tbody>
-                                                            <tfoot>
-                                                            <th>ID</th>
-                                                            <th>codigo patrimonial</th>
-                                                            <th>marca</th>
-                                                            <th>modelo</th>
-                                                            <th>area</th>
-                                                            <th>imagen</th>
-                                                            <th>estado</th>
-                                                            </tfoot>
+                                                            
+                                                         
                                                         </tbody>
                                                         
                                                         
@@ -84,61 +77,115 @@
                                     <div class="card">
                                         <form name="formulario" id="formulario" method="POST">
                                         <div class="row">
-                                            <div class="col-md-12 col-lg-11">
+                                            <div class="col-md-12 col-lg-12">
                                                 <div class="card-body">
                                                 <h4 class="mt-0 header-title">Datos del Equipo</h4>
                                                     <div class="row clearfix">
-                                                        <div class="col-md-6">
+
+                                                      <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label>Tipo de Apoderado:(*)</label>
-                                                                <input type="hidden" name="idlaptop" id="idlaptop">
-                                                                <select class="form-control selectpicker" data-live-search="true" id="idtipoapoderado" name="idtipoapoderado">
+                                                            <input type="hidden" name="idequipo" id="idequipo">
+                                                            <label>Selecionar Tipo Equipo:(*)</label>
+                                                                <select class="form-control select-picker" data-live-search="true" id="IPtipoequipo" name="IPtipoequipo">
+                                                             
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                     <label>Codigo patrimonial</label>
-                                                                    <input class="form-control" type="text" name="Lcodigo" id="Lcodigo" maxLength="50"
+                                                                    <input class="form-control" type="text" name="Ecodigo" id="Ecodigo" 
                                                                     placeholder="Codigo">
                                                             </div>
-                                                        </div> 
-                                                    </div>
-                                                    <div class="row clearfix">
-                                                        <div class="col-md-6">
+                                                        </div>
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Marca</label>
-                                                                <input class="form-control" type="text" name="Lmarca" id="Lmarca" maxLength="50"
+                                                                <input class="form-control" type="text" name="Emarca" id="Emarca" 
                                                                 placeholder="Modelo">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                   
+                                                        
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                       
+                                                        <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Modelo</label>
-                                                                <input class="form-control" type="text" name="Lmodelo" id="Lmodelo" maxLength="50"
+                                                                <input class="form-control" type="text" name="Emodelo" id="Emodelo" 
                                                                 placeholder="Modelo">
                                                             </div>
                                                         </div> 
-                                                    </div>
-                                                    <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group ">                                                               
                                                                 <label>Seleccionar area:</label>
-                                                                <select class="form-control selectpicker" data-live-search="true" id="Larea" name="Larea">
+                                                                <select class="form-control selectpicker" data-live-search="true" id="Earea" name="Earea">
                                                                 </select>
                                                             </div>
                                                         </div>
+
+                                                         <div class="col-md-2">
+                                                         <label>Seleccionar Dueño</label>
+                                                              <div class="form-check form-check-inline">
+                                                                    <input
+                                                                    class="form-check-input"
+                                                                    type="radio"
+                                                                    name="perteneciente"
+                                                                    id="rbdpropio"
+                                                                    value="Propio"
+                                                                />
+                                                                <label class="form-check-label" for="inlineRadio1">Propio</label>
+                                                                </div>
+
+                                                                <div class="form-check form-check-inline">
+                                                                <input
+                                                                    class="form-check-input"
+                                                                    type="radio"
+                                                                    name="perteneciente"
+                                                                    id="rbdentidad"
+                                                                    value="Entidad"
+                                                                />
+                                                                <label class="form-check-label" for="inlineRadio2">Entidad</label>
+                                                                </div>
+                                                                </div>
+                                                   </div>
+                                                    <div class="row clearfix">
+                                                       <!--
                                                         <div class="form-group">
                                                             <label>Imagen</label>
-                                                            <input type="file" class="form-control-file" name="Limagen" id="Limagen">
-                                                            <input type="hidden" name="Limagenactual" id="Limagenactual">
+                                                            <input type="file" class="form-control-file" name="Eimagen" id="Eimagen">
+                                                            <input type="hidden" name="Eimagenactual" id="Eimagenactual">
                                                             <br></br>
-                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Limagenmuestra" id="Limagenmuestra">
-                                                        </div>
+                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="Eimagenmuestra" id="Eimagenmuestra">
+                                                        </div>-->
                                                     </div>
+                                                    <div class="row clearfix"  id="PartesEquipo">
+                                                    <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Selecionar Codigo P. de Pantalla:</label>
+                                                    <select class="form-control selectpicker" data-live-search="true" id="idpantalla" name="idpantalla">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Selecionar Codigo P. de Teclado:</label>
+                                                    <select class="form-control selectpicker" data-live-search="true" id="idteclado" name="idteclado">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Seleccionar Codigo Mouse aaa:</label>
+                                                    <select class="form-control selectpicker" data-live-search="true" id="idmouse" name="idmouse">
+                                                    </select>
                                                 </div>
                                             </div>
 
+                                             </div>
+                                            </div>                                            
                                             <div class="col-md-12 col-lg-12">
                                                 <div class="card-body">
                                                     <div class="row clearfix text-right  ">

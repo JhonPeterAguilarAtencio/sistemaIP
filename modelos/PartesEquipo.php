@@ -20,6 +20,17 @@ Class PartesEquipo
         return ejecutarConsulta($sql1);
     }
 
-    
+    public function Editar($idequipo, $idteclado, $idmouse, $idpantalla, $fecha)
+    {
+        $sql="UPDATE PartesEquipo SET idteclado='$idteclado', idmouse='$idmouse', idpantalla='$idpantalla'
+        WHERE idequipo='$idequipo'";
+        return ejecutarConsulta($sql);
+    }
+
+    public function mostrar($idequipo)
+    {
+        $sql="SELECT * FROM partesequipo WHERE idequipo='$idequipo'";
+        return ejecutarConsultaSimpleFila($sql);
+    }
 }
 ?>

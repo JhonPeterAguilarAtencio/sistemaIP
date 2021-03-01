@@ -166,6 +166,8 @@ function mostrar(idips)
         data = JSON.parse(data);
         mostrarfrom(true);
         console.log(data);
+
+        $("#idips").val(data.idips);
         $("#idarea").val(data.idarea);
         $("#idpersona").val(data.idpersona); 
         $("#IPtipoequipo").val(data.idTipoEQuipo); 

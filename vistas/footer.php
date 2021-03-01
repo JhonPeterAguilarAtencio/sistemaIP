@@ -56,7 +56,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detalle Equipos del Ordenador:</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle Equipo:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,8 +67,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
+                                <br>
                                 <input type="hidden" name="idordenador" id="idordenador">
-                                <input type="text" class="form-control" disabled name="txtOcodigopatrimonial" id="txtOcodigopatrimonial">
+                                <label for="recipient-name"  id="txtOcodigopatrimonial" class="col-form-label"></label>
+
+
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -78,19 +81,20 @@
                             </div>
                         </div>
                     </div>
-                   
-                    <label>Detalle de Teclado</label>
+                   <div id="divpartes">                
+                    
+                   <label>Detalle de Teclado</label>
                     <div class="row clearfix">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
-                                <input type="text" class="form-control" disabled id="txtpatrimonioanlteclado">
+                            <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
+                                <input type="text" class="form-control" disabled id="txtodelo">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" disabled id="txtmarcateclado1">
+                                <label for="recipient-name" class="col-form-label">Area:</label>
+                                <input type="text" class="form-control" disabled id="txtArea">
                             </div>
                         </div>
                     </div>
@@ -110,21 +114,27 @@
                             </div>
                         </div>
                     </div>
+                    
+
                     <label>Detalle de Mouse</label>
                     <div class="row clearfix">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Codigo Patrimonial:</label>
-                                <input type="text" class="form-control" disabled id="txtcodigomouse">
+                                
+                                <input type="text" class="form-control"  disabled name="txtcodigopatpantalla" id="txtcodigopatpantalla">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
-                                <input type="text" class="form-control" disabled id="txtmarcamouse">
+                                <input type="text" class="form-control"  disabled name="txtmarcapantalla1" id="txtmarcapantalla1">
                             </div>
                         </div>
                     </div>
+
+                  </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">

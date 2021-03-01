@@ -3,13 +3,13 @@
 
     $laptop=new Laptop();
 
-    $idlaptop=isset($_POST["idlaptop"])? limpiarCadena($_POST["idlaptop"]):"";
-    $idtipocodigo=isset($_POST["idtipocodigo"])? limpiarCadena($_POST["idtipocodigo"]):"";
-    $Lcodigo=isset($_POST["Lcodigo"])? limpiarCadena($_POST["Lcodigo"]):"";
-    $Lmarca=isset($_POST["Lmarca"])? limpiarCadena($_POST["Lmarca"]):"";
-    $Lmodelo=isset($_POST["Lmodelo"])? limpiarCadena($_POST["Lmodelo"]):"";
-    $Larea=isset($_POST["Larea"])? limpiarCadena($_POST["Larea"]):"";
-    $Limagen=isset($_POST["Limagen"])? limpiarCadena($_POST["Limagen"]):"";
+    $idlaptop=      isset($_POST["idlaptop"])?      limpiarCadena($_POST["idlaptop"]):"";
+    $idtipocodigo=  isset($_POST["idtipocodigo"])?  limpiarCadena($_POST["idtipocodigo"]):"";
+    $Lcodigo=       isset($_POST["Lcodigo"])?       limpiarCadena($_POST["Lcodigo"]):"";
+    $Lmarca=        isset($_POST["Lmarca"])?        limpiarCadena($_POST["Lmarca"]):"";
+    $Lmodelo=       isset($_POST["Lmodelo"])?       limpiarCadena($_POST["Lmodelo"]):"";
+    $Larea=         isset($_POST["Larea"])?         limpiarCadena($_POST["Larea"]):"";
+    $Limagen=       isset($_POST["Limagen"])?       limpiarCadena($_POST["Limagen"]):"";
     $idetipoequipo="2";
     switch ($_GET["op"]){
         //echo $_GET["op"] ? "Implemento Mouse registrado";

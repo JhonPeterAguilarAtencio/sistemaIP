@@ -69,7 +69,7 @@
                         ' <button class="btn btn-primary" onclick="activar('.$reg->idips.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Asiglas,
                         "2"=>$reg->Anombre,
-                        "3"=>$reg->description,
+                        "3"=>$reg->TEdescription,
                         "4"=>$reg->IPnumips,
                         "5"=>$reg->PERnombre,
                         "6"=>$reg->IPusuariocredencial,
@@ -158,9 +158,11 @@
 
                 while ($reg = $rspta->fetch_object())
                     {
-                        echo '<option value=' . $reg->idtipo . '>' . $reg->description . '</option>';
+                        echo '<option value=' . $reg->idtipoequipo . '>' . $reg->TEdescription . '</option>';
                     }
             break;
+
+         
 
             case 'selecEquipos':
                 require_once "../modelos/mtipoEquipo.php";

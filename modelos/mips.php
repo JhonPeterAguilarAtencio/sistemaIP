@@ -27,16 +27,30 @@ Class IPS
     }
 
     //metodo para editar registros
-    public function editar($idips, $idarea, $idpersona, $IPtipoequipo, $idlaptop, $idordenador, $idimpresora, 
-    $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial)
+    public function editar($idips,$idarea, $idpersona, $idequipo, $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo)
     {
         $sql="UPDATE ips2 SET idarea='$idarea', idpersona='$idpersona', idequipo='$idequipo',      
          IPnumips='$IPnumips', IPnumdns='$IPnumdns',
          IPnumproxy='$IPnumproxy', IPnumpuertoproxy='$IPnumpuertoproxy', IPusuariocredencial='$IPusuariocredencial',
-         IPclavecreencial='$IPclavecreencial' WHERE idips='$idips'";
+         IPclavecreencial='$IPclavecreencial' ,idTipoEQuipo='$idTipoEquipo' WHERE idips='$idips'";
         return ejecutarConsulta($sql);
     }
 
+    public function ver($id)
+    {     // $idequipo=5;
+       
+                $sql3="SELECT  eq.idequipo, eq.idtipoequipo,eq.Codigopatrimonial,eq.Marca,
+                eq.Modelo,a.Anombre,eq.Estado,eq.Partes,eq.Perteneciente  FROM equipo AS eq
+                INNER JOIN areaip AS a
+                ON eq.Area = a.idarea
+                WHERE eq.idequipo='$id'";   
+
+               
+               return ejecutarConsultaSimpleFila($sql3);
+        }  
+
+    
+    }
     //metodo para desactivar  
     public function desactivar($idips)
     {
@@ -66,7 +80,7 @@ Class IPS
         ON a.idarea=b.idarea INNER JOIN persona c ON a.idpersona=c.idpersona INNER JOIN laptop d ON
          a.idlaptop=d.idlaptop";
 
-         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.description,ip.IPnumips,p.PERnombre,p.PERcargo,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
+         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.TEdescription,ip.IPnumips,p.PERnombre,p.PERcargo,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
 
          INNER JOIN areaip AS are
          ON ip.idarea = are.idarea
@@ -75,7 +89,7 @@ Class IPS
          INNER JOIN persona AS p
          ON ip.idpersona = p.idpersona
          INNER JOIN tipoequipo AS tipo
-         ON ip.idTipoEQuipo= tipo.idtipo";
+         ON ip.idTipoEQuipo= tipo.idtipoequipo";
 
         return ejecutarConsulta($sql2);
     }
