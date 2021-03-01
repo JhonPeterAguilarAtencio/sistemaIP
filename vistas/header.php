@@ -178,48 +178,12 @@
 
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="../ordenador/listaryagregar.php">
                     <i class="fas fa-fw fa-desktop"></i>
                     <span>Ordenador</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../pantalla/listaryagregar.php">
-                    <i class="fas fa-fw fa-desktop"></i>
-                    <span>Pantallas</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../teclado/listar.php">
-                    <i class="fas fa-fw fa-keyboard"></i>
-                    <span>Teclado</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../mouse/listaryagregar.php">
-                    <i class="fas fa-fw fa-rocket"></i>
-                    <span>Mouse</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../laptop/llistaryagregar.php">
-                    <i class="fas fa-fw fa-laptop"></i>
-                    <span>Laptop</span></a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="../impresora/Ilistaryagregar.php">
-                    <i class="fas fa-fw  fa-print"></i>
-                    <span>Impresoras</span></a>
-            </li>
-    
-
+            </li>-->
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
