@@ -70,8 +70,6 @@
                                 <br>
                                 <input type="hidden" name="idordenador" id="idordenador">
                                 <label for="recipient-name"  id="txtOcodigopatrimonial" class="col-form-label"></label>
-
-
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -135,6 +133,105 @@
 
                   </div>
 
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary">Send message</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE VISTA IPS-->
+    <div class="modal fade" id="ipsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalIPS" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalIPS">Detalle IPS:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
+                                <br>
+                                <input type="hidden" name="idips" id="idips">
+                                <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                            </div>
+                        </div>
+                        <label>Detalle de IPS</label>
+                        <div class="row clearfix">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Equipo:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">IPS:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Nro DNS:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Nro Proxy:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Nro Puerto Proxy:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Nivel Credencial:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Clave Credencial:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <label>Detalle de Persona</label>
+                        <div class="row clearfix">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                        <br>
+                                    <label for="recipient-name" class="col-form-label">Cargo:</label>
+                                        <br>
+                                        <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div id="divpartes">                       
+                    <label>Detalle de Equipo:</label>
+                        <div class="row clearfix">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Codigo Equipo:</label>
+                                    <br>
+                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <br>
+                                <label for="recipient-name" class="col-form-label">Marca Equipo:</label>
+                                    <br>
+                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                <label for="recipient-name" class="col-form-label">Modelo Equipo:</label>
+                                    <br>
+                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
                     </form>
                 </div>
                 <div class="modal-footer">
