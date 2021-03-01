@@ -62,10 +62,10 @@
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
                         "0"=>($reg->IPestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-danger" onclick="desactivar('.$reg->idips.')"><i class="fa fa-toggle-off"></i></button>' :
                         '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-primary" onclick="activar('.$reg->idips.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Asiglas,
                         "2"=>$reg->Anombre,
