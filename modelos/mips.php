@@ -46,8 +46,8 @@ Class IPS
                 WHERE eq.idequipo='$id'";   
 
                
-               return ejecutarConsultaSimpleFila($sql3);
-        }  
+               return ejecutarConsultaSimpleFila($consulta);
+    
 
     
     }
