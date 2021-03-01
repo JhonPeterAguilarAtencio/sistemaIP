@@ -155,15 +155,15 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                    <label>Detalle de IPS</label>
                     <div class="row clearfix">
-                        <label>Detalle de IPS</label>
-                        <div class="row clearfix">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
+                                <label for="recipient-name" class="col-form-label">Area/Oficina:</label>
                                     <br>
                                     <input type="hidden" name="idips" id="idips">
-                                    <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <label for="recipient-name"  id="idarea" class="col-form-label"></label>
+                                    <br>
                                     <label for="recipient-name" class="col-form-label">Equipo:</label>
                                         <br>
                                         <label for="recipient-name"  id="txt" class="col-form-label"></label>
@@ -193,10 +193,10 @@
                                         <label for="recipient-name"  id="txt" class="col-form-label"></label>
                                 </div>
                             </div>
-                        </div>
-                        <label>Detalle de Persona</label>
-                        <div class="row clearfix">
-                            <div class="col-md-8">
+                    </div>
+                    <label>Detalle de Persona</label>
+                    <div class="row clearfix">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                                         <br>
@@ -207,7 +207,6 @@
                                         <label for="recipient-name"  id="txt" class="col-form-label"></label>
                                 </div>
                             </div>
-                        </div>
                     </div>
                    <div id="divpartes">                       
                     <label>Detalle de Equipo:</label>
@@ -221,6 +220,7 @@
                                 <label for="recipient-name" class="col-form-label">Marca Equipo:</label>
                                     <br>
                                     <label for="recipient-name"  id="txt" class="col-form-label"></label>
+                                    <br>
                                 <label for="recipient-name" class="col-form-label">Modelo Equipo:</label>
                                     <br>
                                     <label for="recipient-name"  id="txt" class="col-form-label"></label>
