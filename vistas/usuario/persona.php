@@ -97,21 +97,21 @@ else{
                                                                 <label>Dni(*):</label>
                                                                 <input type="hidden" name="idpersona" id="idpersona">
                                                                 <input class="form-control" type="text" name="PERdni" id="PERdni" 
-                                                                maxLength="50" placeholder="Dni">
+                                                                maxLength="50" placeholder="Dni" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                     <label>Nombre</label>
                                                                     <input class="form-control" type="text" name="PERnombre" id="PERnombre" maxLength="50"
-                                                                    placeholder="Nombre">
+                                                                    placeholder="Nombre" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Apellidos</label>
                                                                 <input class="form-control" type="text" name="PERapellidos" id="PERapellidos" maxLength="50"
-                                                                placeholder="Apellidos">
+                                                                placeholder="Apellidos" required>
                                                             </div>
                                                         </div> 
                                                     </div>
@@ -120,14 +120,14 @@ else{
                                                             <div class="form-group ">
                                                                 <label>Telefono</label>
                                                                 <input class="form-control" type="text" name="PERtelefono" id="PERtelefono" maxLength="50"
-                                                                placeholder="Telefono">
+                                                                placeholder="Telefono" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Email</label>
                                                                 <input class="form-control" type="text" name="PERemail" id="PERemail" maxLength="50"
-                                                                placeholder="Email">
+                                                                placeholder="Email" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">

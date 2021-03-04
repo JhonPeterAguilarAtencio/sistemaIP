@@ -87,7 +87,6 @@
                                                             <input type="hidden" name="idequipo" id="idequipo">
                                                             <label>Selecionar Tipo Equipo:(*)</label>
                                                                 <select class="form-control select-picker" data-live-search="true" id="IPtipoequipo" name="IPtipoequipo">
-                                                             
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -96,14 +95,14 @@
                                                             <div class="form-group">
                                                                     <label>Codigo patrimonial</label>
                                                                     <input class="form-control" type="text" name="Ecodigo" id="Ecodigo" 
-                                                                    placeholder="Codigo">
+                                                                    placeholder="Codigo" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Marca</label>
                                                                 <input class="form-control" type="text" name="Emarca" id="Emarca" 
-                                                                placeholder="Modelo">
+                                                                placeholder="Modelo" required>
                                                             </div>
                                                         </div>
                                                    
@@ -115,7 +114,7 @@
                                                             <div class="form-group ">
                                                                 <label>Modelo</label>
                                                                 <input class="form-control" type="text" name="Emodelo" id="Emodelo" 
-                                                                placeholder="Modelo">
+                                                                placeholder="Modelo" required>
                                                             </div>
                                                         </div> 
                                                         <div class="col-md-6">

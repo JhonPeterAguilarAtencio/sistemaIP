@@ -97,14 +97,14 @@ else{
                                                             <div class="form-group ">
                                                                 <label>Cargo</label>
                                                                 <input class="form-control" type="text" name="Ucargo" id="Ucargo" maxLength="50"
-                                                                placeholder="">
+                                                                placeholder="cargo">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group ">
                                                                 <label>Login</label>
                                                                 <input class="form-control" type="text" name="Ulogin" id="Ulogin" maxLength="50"
-                                                                    placeholder="">
+                                                                    placeholder="login">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -113,7 +113,7 @@ else{
                                                             <div class="form-group ">
                                                                 <label>Clave</label>
                                                                 <input class="form-control" type="password" name="Uclave" id="Uclave" maxLength="50"
-                                                                    placeholder="">
+                                                                    placeholder="Clave">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">

@@ -63,9 +63,7 @@ else{
                                                             <th>imagen</th>
                                                             <th>estado</th>
                                                             </tfoot>
-                                                        </tbody>
-                                                        
-                                                        
+                                                        </tbody>   
                                                     </table>
                                                 </div>
                                             </div>
@@ -95,14 +93,14 @@ else{
                                                                 <label>Codigo patrimonial</label>
                                                                 <input type="hidden" name="idteclado" id="idteclado">
                                                                 <input class="form-control" type="text" name="Tcodigopatrimonial" id="Tcodigopatrimonial" 
-                                                                maxLength="50" placeholder="Codigo Patrimonial">
+                                                                maxLength="50" placeholder="Codigo Patrimonial" required/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                     <label>Marca</label>
                                                                     <input class="form-control" type="text" name="Tmarca" id="Tmarca" maxLength="50"
-                                                                    placeholder="Marca">
+                                                                    placeholder="Marca" required>
                                                             </div>
                                                         </div> 
                                                     </div>
@@ -111,14 +109,14 @@ else{
                                                             <div class="form-group">
                                                                 <label>Modelo</label>
                                                                 <input class="form-control" type="text" name="Tmodelo" id="Tmodelo" maxLength="50"
-                                                                placeholder="Modelo">
+                                                                placeholder="Modelo" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
                                                                 <label>Area</label>
                                                                 <input class="form-control" type="text" name="Tarea" id="Tarea" maxLength="50"
-                                                                placeholder="Area">
+                                                                placeholder="Area" required>
                                                             </div>
                                                         </div> 
                                                     </div>

@@ -94,14 +94,14 @@ else{
                                                                 <label>Codigo patrimonial</label>
                                                                 <input type="hidden" name="idpantalla" id="idpantalla">
                                                                 <input class="form-control" type="text" name="Pcodigopatrimonial" id="Pcodigopatrimonial" 
-                                                                maxLength="50" placeholder="Codigo Patrimonial">
+                                                                maxLength="50" placeholder="Codigo Patrimonial" required/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                     <label>Marca</label>
                                                                     <input class="form-control" type="text" name="Pmarca" id="Pmarca" maxLength="50"
-                                                                    placeholder="Marca">
+                                                                    placeholder="Marca" required>
                                                             </div>
                                                         </div> 
                                                     </div>
@@ -110,14 +110,14 @@ else{
                                                             <div class="form-group">
                                                                 <label>Modelo</label>
                                                                 <input class="form-control" type="text" name="Pmodelo" id="Pmodelo" maxLength="50"
-                                                                placeholder="Modelo">
+                                                                placeholder="Modelo" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
                                                                 <label>Area</label>
                                                                 <input class="form-control" type="text" name="Parea" id="Parea" maxLength="50"
-                                                                placeholder="Area">
+                                                                placeholder="Area" required>
                                                             </div>
                                                         </div> 
                                                     </div>
