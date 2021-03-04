@@ -95,5 +95,19 @@
                         //echo ("#Mmarca").val($Mmarca).text();
                     }
             break;
+            
+            case 'NadaBorrar':
+                require_once "../modelos/marea.php";
+                $Impresora = new Area();
+
+                $rspta = $Impresora->select();
+
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
+            break;
+    }
     }
 ?>
