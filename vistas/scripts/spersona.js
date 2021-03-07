@@ -12,6 +12,18 @@ function init()
     });
 
     $("#PERimagenmuestra").hide();
+
+    //Cargamos los items al select tipocodigo
+    $.get("../../ajax/xpersona.php?op=selearea", function(r){
+        $("#idarea").html(r);
+       
+    });
+
+    //Cargamos los items al select tipocodigo
+    $.get("../../ajax/xpersona.php?op=selecargoempleado", function(r){
+        $("#idtipocargoemp").html(r);
+       
+    });
 }
 
 //funcion Limpiar
@@ -20,10 +32,11 @@ function limpiar()
     $("#idpersona").val("");
     $("#PERdni").val("");
     $("#PERnombre").val(""); 
-    $("#PERapellidos").val(""); 
+    $("#PERapellidos").val("");
+    $("#idtipocargoemp").val("");
     $("#PERtelefono").val("");
     $("#PERemail").val("");
-    $("#PERarea").val("");
+    $("#idarea").val("");
     $("#PERimagen").val("");
     $("#PERimagenmuestra").attr("src","");
     $("#PERimagenactual").val("");
@@ -137,10 +150,11 @@ function mostrar(idpersona)
 
         $("#PERdni").val(data.PERdni);
         $("#PERnombre").val(data.PERnombre); 
-        $("#PERapellidos").val(data.PERapellidos); 
+        $("#PERapellidos").val(data.PERapellidos);
+        $("#idtipocargoemp").val(data.idtipocargoemp);
         $("#PERtelefono").val(data.PERtelefono);
         $("#PERemail").val(data.PERemail);
-        $("#PERarea").val(data.PERarea);
+        $("#idarea").val(data.idarea);
         $("#PERimagenmuestra").show();
         $("#PERimagenmuestra").attr("src","../../files/personas/"+data.PERimagen);
         $("#PERimagenactual").val(data.PERimagen);

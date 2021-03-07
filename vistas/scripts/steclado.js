@@ -12,6 +12,12 @@ function init()
     });
 
     $("#Timagenmuestra").hide();
+
+    //Cargamos los items al select tipocodigo
+    $.get("../../ajax/xteclado.php?op=selearea", function(r){
+        $("#idarea").html(r);
+       
+    });
 }
 
 //funcion Limpiar
@@ -21,7 +27,7 @@ function limpiar()
     $("#Tcodigopatrimonial").val("");
     $("#Tmarca").val(""); 
     $("#Tmodelo").val(""); 
-    $("#Tarea").val("");
+    $("#idarea").val("");
     $("#Timagen").val("");
     $("#Timagenmuestra").attr("src","");
     $("#Timagenactual").val("");
@@ -136,7 +142,7 @@ function mostrar(idteclado)
         $("#Tcodigopatrimonial").val(data.Tcodigopatrimonial);
         $("#Tmarca").val(data.Tmarca); 
         $("#Tmodelo").val(data.Tmodelo); 
-        $("#Tarea").val(data.Tarea); 
+        $("#idarea").val(data.idarea); 
         $("#Timagenmuestra").show();
         $("#Timagenmuestra").attr("src","../../files/teclados/"+data.Timagen);
         $("#Timagenactual").val(data.Timagen);

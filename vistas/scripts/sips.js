@@ -145,8 +145,8 @@ function guardaryeditar(e)
                 console.log(datos);
                 //alert(datos); $rspta
                alert("REgistrado",datos );
-              //  mostrarfrom(false);
-              //  tabla.ajax.reload();
+              mostrarfrom(false);
+              tabla.ajax.reload();
             }, error: function (request, status, error) {
                 alert("RE eroor ",);
                 alert(request.responseText);
@@ -184,8 +184,8 @@ function mostrar(idips)
         $("#IPclavecreencial").val(data.IPclavecreencial);
 
       
-        $("#IPtipoequipo").prop('disabled', true);
-        $("#idequipos").prop('disabled', true);
+        //$("#IPtipoequipo").prop('disabled', true);
+        //$("#idequipos").prop('disabled', true);
     })
 }
 function ver(idips)

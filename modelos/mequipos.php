@@ -71,16 +71,16 @@ Class Equipos
      }   
 
     //metodo para desactivar  
-    public function desactivar($idlaptop)
+    public function desactivar($Eidequipo)
     {
-        $sql="UPDATE laptop SET Lestado='0' WHERE idlaptop='$idlaptop'";
+        $sql="UPDATE equipo SET Estado='0' WHERE idequipo='$Eidequipo'";
         return ejecutarConsulta($sql);
     }
 
     //metodo para activar
     public function activar($idlaptop)
     {
-        $sql="UPDATE laptop SET Lestado='1' WHERE idlaptop='$idlaptop'";
+        $sql="UPDATE equipo SET Estado='1' WHERE idequipo='$idlaptop'";
         return ejecutarConsulta($sql);
     }
 

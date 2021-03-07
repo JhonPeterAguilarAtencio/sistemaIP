@@ -53,13 +53,13 @@
                 
             }
             break;
-        case 'desactivar':
-                $rspta=$ips->desactivar($idips);
+            case 'desactivar':
+                $rspta=$ips->desactivar($Eidequipo);
                 echo $rspta ? "Implemento Teclado desactivado" : "Implemento teclado no se pudo desactivado";
                 
             break;
         case 'activar':
-                $rspta=$ips->activar($idips);
+                $rspta=$ips->activar($Eidequipo);
                 echo $rspta ? "Implemento Teclado activado" : "Implemento teclado no se pudo activar";
                 
             break;
@@ -99,20 +99,22 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->Estado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.','.$reg->Partes.')">ver</i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idequipo.')"><i class="fa fa-toggle-off"></i></button>' :
-                        ' <button class="btn btn-warning" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.')"><i class="fa fa-eye"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idequipo.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->Estado) ? 
+                        
+                        '<button style="margin: 2px" class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'.
+                        '<button style="margin: 2px" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.','.$reg->Partes.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button style="margin: 0px" class="btn btn-danger btn-sm" onclick="desactivar('.$reg->idequipo.')"><i class="fa fa-times-circle"></i></button>' :
+                        '<button style="margin: 2px" class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idequipo.')"><i class="fa fa-edit"></i></button>'.
+                        '<button style="margin: 2px" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ordenadorModal" onclick="ver('.$reg->idequipo.','.$reg->Partes.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" onclick="activar('.$reg->idequipo.')"><i class="fa fa-check-square"></i></button>',
                            
                         "1"=>$reg->TEdescription,
                         "2"=>$reg->Codigopatrimonial,
                         "3"=>$reg->Marca,
                         "4"=>$reg->Modelo,
                         "5"=>$reg->Anombre,  
-                        "6"=>($reg->Estado)?'<span class="badge badge-primary">Activado</span>':
-                        '<span class="right badge badge-danger">Desactivado</span>'
+                        "6"=>($reg->Estado)?'<span class="badge badge-primary">A</span>':
+                        '<span class="right badge badge-danger">D</span>'
                     );
                 }
 

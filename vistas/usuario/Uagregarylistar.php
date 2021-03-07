@@ -94,10 +94,11 @@ else{
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <div class="form-group ">
-                                                                <label>Cargo</label>
-                                                                <input class="form-control" type="text" name="Ucargo" id="Ucargo" maxLength="50"
-                                                                placeholder="cargo">
+                                                            <div class="form-group">
+                                                                <label>Seleccionar Cargo Usuario:</label>
+                                                                <input type="hidden" name="idusuario" id="idusuario">
+                                                                <select class="form-control selectpicker" id="idtipocargousu" name="idtipocargousu">
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">

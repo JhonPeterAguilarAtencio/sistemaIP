@@ -14,7 +14,7 @@ Class Mouses
     //Implementacion un metodo para insertar registros
     public function insertar($Mcodigopatrimonial, $Mmarca, $Mmodelo, $Marea, $Mimagen)
     {
-        $sql="INSERT INTO mouse(Mcodigopatrimonial, Mmarca, Mmodelo, Marea, Mimagen, Mestado)
+        $sql="INSERT INTO mouse(Mcodigopatrimonial, Mmarca, Mmodelo, idarea, Mimagen, Mestado)
         VALUES ('$Mcodigopatrimonial', '$Mmarca', '$Mmodelo', '$Marea', '$Mimagen','1')";
         return ejecutarConsulta($sql);
     }
@@ -22,7 +22,7 @@ Class Mouses
     //metodo para editar registros
     public function editar($idmouse, $Mcodigopatrimonial, $Mmarca, $Mmodelo, $Marea, $Mimagen)
     {
-        $sql="UPDATE mouse SET Mcodigopatrimonial='$Mcodigopatrimonial', Mmarca='$Mmarca', Mmodelo='$Mmodelo', Marea='$Marea', Mimagen='$Mimagen'
+        $sql="UPDATE mouse SET Mcodigopatrimonial='$Mcodigopatrimonial', Mmarca='$Mmarca', Mmodelo='$Mmodelo', idarea='$Marea', Mimagen='$Mimagen'
         WHERE idmouse='$idmouse'";
         return ejecutarConsulta($sql);
     }
@@ -51,7 +51,7 @@ Class Mouses
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT * FROM mouse";
+        $sql="SELECT a.idmouse,a.Mcodigopatrimonial,a.Mmarca,a.Mmodelo,b.Anombre,a.Mimagen,a.Mestado FROM mouse a INNER JOIN areaIP b ON a.idarea=b.idarea";
         return ejecutarConsulta($sql);
     }
 

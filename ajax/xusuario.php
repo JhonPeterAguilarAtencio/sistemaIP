@@ -6,7 +6,7 @@
 
     $idusuario=isset($_POST["idusuario"])? limpiarCadena($_POST["idusuario"]):"";
     $idpersona=isset($_POST["idpersona"])? limpiarCadena($_POST["idpersona"]):""; 
-    $Ucargo=isset($_POST["Ucargo"])? limpiarCadena($_POST["Ucargo"]):"";
+    $Ucargo=isset($_POST["idtipocargousu"])? limpiarCadena($_POST["idtipocargousu"]):"";
     $Ulogin=isset($_POST["Ulogin"])? limpiarCadena($_POST["Ulogin"]):"";
     $Uclave=isset($_POST["Uclave"])? limpiarCadena($_POST["Uclave"]):""; //la clave sera encriptada con shat
     $Uimagen=isset($_POST["Uimagen"])? limpiarCadena($_POST["Uimagen"]):"";
@@ -69,7 +69,7 @@
                         '<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-edit"></i></button>'.
                         ' <button class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->PERnombre ." ". $reg->PERapellidos,
-                        "2"=>$reg->Ucargo,
+                        "2"=>$reg->TCUnombre,
                         "3"=>$reg->Ulogin, 
                         "4"=>"<img src='../../files/usuario/".$reg->Uimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
                         "5"=>($reg->Uestado)?'<span class="badge badge-primary">Activado</span>':
@@ -95,6 +95,18 @@
                 while ($reg = $rspta->fetch_object())
                     {
                         echo '<option value=' . $reg->idpersona . '>' . $reg->PERnombre ." ". $reg->PERapellidos . '</option>';
+                    }
+            break;
+
+            case 'selectcargousuario':
+                require_once "../modelos/mcargousuario.php";
+                $usuario = new Tipocargousuario();
+
+                $rspta = $usuario->select();
+
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idtipocargousu . '>' . $reg->TCUnombre . '</option>';
                     }
             break;
 

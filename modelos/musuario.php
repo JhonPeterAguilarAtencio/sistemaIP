@@ -12,10 +12,10 @@ Class Usuario
     }
 
     //Implementacion un metodo para insertar registros
-    public function insertar($idpersona, $Ucargo, $Ulogin, $Uclave, $Uimagen, $permisos)
+    public function insertar($idpersona, $idtipocargousu, $Ulogin, $Uclave, $Uimagen, $permisos)
     {
-        $sql="INSERT INTO usuario(idpersona, Ucargo, Ulogin, Uclave, Uimagen, Uestado)
-        VALUES ('$idpersona', '$Ucargo', '$Ulogin', '$Uclave', '$Uimagen','1')";
+        $sql="INSERT INTO usuario(idpersona, idtipocargousu, Ulogin, Uclave, Uimagen, Uestado)
+        VALUES ('$idpersona', '$idtipocargousu', '$Ulogin', '$Uclave', '$Uimagen','1')";
         //return ejecutarConsulta($sql);
 
         //voy a llamar a la funcion de la conexion config guardando en el sql y 
@@ -39,9 +39,9 @@ Class Usuario
     }
 
     //metodo para editar registros
-    public function editar($idusuario, $idpersona, $Ucargo, $Ulogin, $Uclave, $Uimagen, $permisos)
+    public function editar($idusuario, $idpersona, $idtipocargousu, $Ulogin, $Uclave, $Uimagen, $permisos)
     {
-        $sql="UPDATE usuario SET idpersona='$idpersona', Ucargo='$Ucargo', Ulogin='$Ulogin', Uclave='$Uclave', 
+        $sql="UPDATE usuario SET idpersona='$idpersona', idtipocargousu='$idtipocargousu', Ulogin='$Ulogin', Uclave='$Uclave', 
         Uimagen='$Uimagen' WHERE idusuario='$idusuario'";
         ejecutarConsulta($sql);
 
@@ -95,9 +95,9 @@ Class Usuario
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT a.idusuario,c.PERnombre,c.PERapellidos,a.Ucargo,a.Ulogin,
+        $sql="SELECT a.idusuario,c.PERnombre,c.PERapellidos,b.TCUnombre,a.Ulogin,
         a.Uclave,a.Uimagen,a.Uestado FROM usuario a INNER JOIN persona c 
-        ON a.idpersona=c.idpersona";
+        ON a.idpersona=c.idpersona INNER JOIN tipocargousuario b ON a.idtipocargousu=b.idtipocargousu";
         return ejecutarConsulta($sql);
     }
 
@@ -111,7 +111,7 @@ Class Usuario
     //funcion para verificar el acceso al sistema 
     public function verificar($Ulogin,$Uclave)
     {
-        $sql="SELECT idusuario, idpersona, Ucargo, Ulogin, Uclave, Uimagen FROM usuario 
+        $sql="SELECT idusuario, idpersona, idtipocargousu, Ulogin, Uclave, Uimagen FROM usuario 
         WHERE Ulogin='$Ulogin' AND Uclave='$Uclave' AND Uestado='1'";
         return ejecutarConsulta($sql);
     }

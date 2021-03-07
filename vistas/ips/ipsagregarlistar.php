@@ -43,7 +43,7 @@ else{
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
-                                                            <th>Opcion</th>
+                                                            <th>***************</th>
                                                             <th>Sigla</th>
                                                             <th>Nombre</th>
                                                             <th>TipoEquipo</th>

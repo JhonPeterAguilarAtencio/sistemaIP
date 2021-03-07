@@ -43,7 +43,7 @@
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
-                                                            <th>ID</th>
+                                                            <th>***************</th>
                                                             <th>Tipo E.</th>
                                                             <th>codigo patrimonial</th>
                                                             <th>marca</th>

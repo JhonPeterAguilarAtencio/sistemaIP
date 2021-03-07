@@ -12,6 +12,12 @@ function init()
     });
 
     $("#Pimagenmuestra").hide();
+
+    //Cargamos los items al select tipocodigo
+    $.get("../../ajax/xpantalla.php?op=selearea", function(r){
+        $("#idarea").html(r);
+       
+    });
 }
 
 //funcion Limpiar
@@ -21,7 +27,7 @@ function limpiar()
     $("#Pcodigopatrimonial").val("");
     $("#Pmarca").val(""); 
     $("#Pmodelo").val(""); 
-    $("#Parea").val("");
+    $("#idarea").val("");
     $("#Pimagen").val("");
     $("#Pimagenmuestra").attr("src","");
     $("#Pimagenactual").val("");
@@ -136,7 +142,7 @@ function mostrar(idpantalla)
         $("#Pcodigopatrimonial").val(data.Pcodigopatrimonial);
         $("#Pmarca").val(data.Pmarca); 
         $("#Pmodelo").val(data.Pmodelo); 
-        $("#Parea").val(data.Parea); 
+        $("#idarea").val(data.idarea); 
         $("#Pimagenmuestra").show();
         $("#Pimagenmuestra").attr("src","../../files/pantallas/"+data.Pimagen);
         $("#Pimagenactual").val(data.Pimagen);

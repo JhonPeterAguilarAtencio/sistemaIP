@@ -7,9 +7,10 @@
     $PERdni=isset($_POST["PERdni"])? limpiarCadena($_POST["PERdni"]):""; 
     $PERnombre=isset($_POST["PERnombre"])? limpiarCadena($_POST["PERnombre"]):"";
     $PERapellidos=isset($_POST["PERapellidos"])? limpiarCadena($_POST["PERapellidos"]):"";
+    $idtipocargoemp=isset($_POST["idtipocargoemp"])? limpiarCadena($_POST["idtipocargoemp"]):"";
     $PERtelefono=isset($_POST["PERtelefono"])? limpiarCadena($_POST["PERtelefono"]):"";
     $PERemail=isset($_POST["PERemail"])? limpiarCadena($_POST["PERemail"]):"";
-    $PERarea=isset($_POST["PERarea"])? limpiarCadena($_POST["PERarea"]):"";
+    $PERarea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
     $PERimagen=isset($_POST["PERimagen"])? limpiarCadena($_POST["PERimagen"]):"";
 
     switch ($_GET["op"]){
@@ -32,11 +33,11 @@
             }
 
             if(empty($idpersona)){
-                $rspta=$persona->insertar($PERdni, $PERnombre, $PERapellidos, $PERtelefono, $PERemail, $PERarea, $PERimagen);
+                $rspta=$persona->insertar($PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen);
                 echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
             }
             else{
-                $rspta=$persona->editar($idpersona, $PERdni, $PERnombre, $PERapellidos, $PERtelefono, $PERemail, $PERarea, $PERimagen);
+                $rspta=$persona->editar($idpersona, $PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen);
                 echo $rspta ? "Implemento Teclado actualizado" : "Implemento teclado no se pudo actualizado";
             }
             break;
@@ -62,18 +63,19 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->PERestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-toggle-off"></i></button>':
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->PERestado) ? '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-danger btn-sm" style="margin: 2px" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-toggle-off"></i></button>':
+                        '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" style="margin: 2px" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->PERdni,
                         "2"=>$reg->PERnombre ." ".$reg->PERapellidos,
-                        "3"=>$reg->PERtelefono,
-                        "4"=>$reg->PERemail,
-                        "5"=>$reg->PERarea,
-                        "6"=>"<img src='../../files/personas/".$reg->PERimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
-                        "7"=>($reg->PERestado)?'<span class="badge badge-primary">Activado</span>':
-                        '<span class="right badge badge-danger">Desactivado</span>'
+                        "3"=>$reg->TCEnombre,
+                        "4"=>$reg->PERtelefono,
+                        "5"=>$reg->PERemail,
+                        "6"=>$reg->Anombre,
+                        "7"=>"<img src='../../files/personas/".$reg->PERimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
+                        "8"=>($reg->PERestado)?'<span class="badge badge-warning">A</span>':
+                        '<span class="right badge badge-danger">I</span>'
                     );
                 }
 
@@ -85,5 +87,28 @@
 
                     echo json_encode($results);
             break;
+
+            case 'selearea':
+                require_once "../modelos/marea.php";
+                $persona = new Area();
+                $rspta = $persona->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
+            break;
+
+            case 'selecargoempleado':
+                require_once "../modelos/mcargoempleado.php";
+                $persona = new Tipocargoempleado();
+                $rspta = $persona->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idtipocargoemp . '>' . $reg->TCEnombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
+            break;
+
     }
 ?>

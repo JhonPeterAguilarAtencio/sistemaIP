@@ -7,7 +7,7 @@
     $Tcodigopatrimonial=isset($_POST["Tcodigopatrimonial"])? limpiarCadena($_POST["Tcodigopatrimonial"]):""; 
     $Tmarca=isset($_POST["Tmarca"])? limpiarCadena($_POST["Tmarca"]):"";
     $Tmodelo=isset($_POST["Tmodelo"])? limpiarCadena($_POST["Tmodelo"]):"";
-    $Tarea=isset($_POST["Tarea"])? limpiarCadena($_POST["Tarea"]):"";
+    $Tarea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
     $Timagen=isset($_POST["Timagen"])? limpiarCadena($_POST["Timagen"]):"";
 
     switch ($_GET["op"]){
@@ -60,14 +60,14 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->Testado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idteclado.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idteclado.')"><i class="fa fa-toggle-off"></i></button>':
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idteclado.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idteclado.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->Testado) ? '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idteclado.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-danger btn-sm" style="margin: 2px" onclick="desactivar('.$reg->idteclado.')"><i class="fa fa-toggle-off"></i></button>':
+                        '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idteclado.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" style="margin: 2px" onclick="activar('.$reg->idteclado.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Tcodigopatrimonial,
                         "2"=>$reg->Tmarca,
                         "3"=>$reg->Tmodelo,
-                        "4"=>$reg->Tarea,   
+                        "4"=>$reg->Anombre,   
                         "5"=>"<img src='../../files/teclados/".$reg->Timagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
                         "6"=>($reg->Testado)?'<span class="badge badge-primary">Activado</span>':
                         '<span class="right badge badge-danger">Desactivado</span>'
@@ -81,6 +81,17 @@
                     "aaData"=>$data);
 
                     echo json_encode($results);
+            break;
+
+            case 'selearea':
+                require_once "../modelos/marea.php";
+                $teclado = new Area();
+                $rspta = $teclado->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
             break;
     }
 ?>

@@ -12,18 +12,18 @@ Class Persona
     }
 
     //Implementacion un metodo para insertar registros
-    public function insertar($PERdni, $PERnombre, $PERapellidos, $PERtelefono, $PERemail, $PERarea, $PERimagen)
+    public function insertar($PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen)
     {
-        $sql="INSERT INTO persona(PERdni, PERnombre, PERapellidos, PERtelefono, PERemail, PERarea, PERimagen, PERestado)
-        VALUES ('$PERdni', '$PERnombre', '$PERapellidos', '$PERtelefono', '$PERemail', '$PERarea', '$PERimagen','1')";
+        $sql="INSERT INTO persona(PERdni, PERnombre, PERapellidos, idtipocargoemp, PERtelefono, PERemail, idarea, PERimagen, PERestado)
+        VALUES ('$PERdni', '$PERnombre', '$PERapellidos', '$idtipocargoemp', '$PERtelefono', '$PERemail', '$PERarea', '$PERimagen','1')";
         return ejecutarConsulta($sql);
     }
 
     //metodo para editar registros
-    public function editar($idpersona, $PERdni, $PERnombre, $PERapellidos, $PERtelefono, $PERemail, $PERarea, $PERimagen)
+    public function editar($idpersona, $PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen)
     {
         $sql="UPDATE persona SET PERdni='$PERdni', PERnombre='$PERnombre', PERapellidos='$PERapellidos',
-         PERtelefono='$PERtelefono', PERemail='$PERemail', PERarea='$PERarea', PERimagen='$PERimagen'
+        idtipocargoemp='$idtipocargoemp', PERtelefono='$PERtelefono', PERemail='$PERemail', idarea='$PERarea', PERimagen='$PERimagen'
         WHERE idpersona='$idpersona'";
         return ejecutarConsulta($sql);
     }
@@ -53,7 +53,9 @@ Class Persona
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT * FROM persona";
+        $sql="SELECT a.idpersona, a.PERdni,a.PERnombre,a.PERapellidos,c.TCEnombre,a.PERtelefono,a.PERemail,
+        b.Anombre,a.PERimagen,a.PERestado FROM persona a INNER JOIN areaIP b
+        ON a.idarea=b.idarea INNER JOIN tipocargoempleado c ON a.idtipocargoemp=c.idtipocargoemp";
         return ejecutarConsulta($sql);
     }
 

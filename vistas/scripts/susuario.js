@@ -14,7 +14,13 @@ function init()
     //Cargamos los items al select tipocodigo
     $.post("../../ajax/xusuario.php?op=selectpersona", function(r){
         $("#idpersona").html(r);
-        $('#idpersona').selectpicker('refresh');
+        //$('#idpersona').selectpicker('refresh');
+    });
+
+     //Cargamos los items al select tipocodigo
+     $.post("../../ajax/xusuario.php?op=selectcargousuario", function(r){
+        $("#idtipocargousu").html(r);
+        //$('#idpersona').selectpicker('refresh');
     });
 
     $("#Uimagenmuestra").hide();
@@ -31,7 +37,7 @@ function limpiar()
 {
     
     $("#idpersona").val("");
-    $("#Ucargo").val(""); 
+    $("#idtipocargousu").val(""); 
     $("#Ulogin").val(""); 
     $("#Uclave").val("");
     $("#Uimagen").val("");
@@ -147,7 +153,7 @@ function mostrar(idusuario)
         mostrarfrom(true);
 
         $("#idpersona").val(data.idpersona);
-        $("#Ucargo").val(data.Ucargo); 
+        $("#idtipocargousu").val(data.idtipocargousu); 
         $("#Ulogin").val(data.Ulogin); 
         $("#Uclave").val(data.Uclave); 
         $("#Uimagenmuestra").show();

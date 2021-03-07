@@ -114,9 +114,9 @@ else{
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="Tarea" id="Tarea" maxLength="50"
-                                                                placeholder="Area" required>
+                                                                <label>Seleccionar Area:</label>
+                                                                <select class="form-control selectpicker" id="idarea" name="idarea">
+                                                                </select>
                                                             </div>
                                                         </div> 
                                                     </div>

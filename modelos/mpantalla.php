@@ -14,7 +14,7 @@ Class Pantalla
     //Implementacion un metodo para insertar registros
     public function insertar($Pcodigopatrimonial, $Pmarca, $Pmodelo, $Parea, $Pimagen)
     {
-        $sql="INSERT INTO pantalla(Pcodigopatrimonial, Pmarca, Pmodelo, Parea, Pimagen, Pestado)
+        $sql="INSERT INTO pantalla(Pcodigopatrimonial, Pmarca, Pmodelo, idarea, Pimagen, Pestado)
         VALUES ('$Pcodigopatrimonial','$Pmarca','$Pmodelo','$Parea','$Pimagen','1')";
         return ejecutarConsulta($sql);
     }
@@ -22,7 +22,7 @@ Class Pantalla
     //metodo para editar registros
     public function editar($idpantalla, $Pcodigopatrimonial, $Pmarca, $Pmodelo, $Parea, $Pimagen)
     {
-        $sql="UPDATE pantalla SET Pcodigopatrimonial='$Pcodigopatrimonial', Pmarca='$Pmarca', Pmodelo='$Pmodelo', Parea='$Parea', Pimagen='$Pimagen'
+        $sql="UPDATE pantalla SET Pcodigopatrimonial='$Pcodigopatrimonial', Pmarca='$Pmarca', Pmodelo='$Pmodelo', idarea='$Parea', Pimagen='$Pimagen'
         WHERE idpantalla='$idpantalla'";
         return ejecutarConsulta($sql);
     }
@@ -51,7 +51,7 @@ Class Pantalla
     //metodo para listar los registros 
     public function listar()
     {
-        $sql="SELECT * FROM pantalla";
+        $sql="SELECT a.idpantalla,a.Pcodigopatrimonial,a.Pmarca,a.Pmodelo,b.Anombre,a.Pimagen,a.Pestado FROM pantalla a INNER JOIN areaIP b ON a.idarea=b.idarea";
         return ejecutarConsulta($sql);
     }
 

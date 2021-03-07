@@ -62,10 +62,10 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->Lestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idlaptop.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idlaptop.')"><i class="fa fa-toggle-off"></i></button>':
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idlaptop.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idlaptop.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->Lestado) ? '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idlaptop.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-danger btn-sm" style="margin: 2px" onclick="desactivar('.$reg->idlaptop.')"><i class="fa fa-toggle-off"></i></button>':
+                        '<button class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idlaptop.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" style="margin: 2px" onclick="activar('.$reg->idlaptop.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->tiponombre,
                         "2"=>$reg->Lcodigo,
                         "3"=>$reg->Lmarca,

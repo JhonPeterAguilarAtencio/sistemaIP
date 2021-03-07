@@ -320,7 +320,7 @@ function desactivar(idips)
         confirmButtonText: 'Si, Desactivar!'
       }).then((result) => {
         if (result.isConfirmed) {
-            $.post("../../ajax/xips.php?op=desactivar",{idips : idips}, function(e){
+            $.post("../../ajax/xEquipo.php?op=desactivar",{Eidequipo : idips}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Desactivado!',
@@ -347,7 +347,7 @@ function activar(idips)
       }).then((result) => {
         if (result.isConfirmed) {
 
-            $.post("../../ajax/xips.php?op=activar",{idips : idips}, function(e){
+            $.post("../../ajax/xEquipo.php?op=activar",{Eidequipo : idips}, function(e){
                 //alert(e)
                 Swal.fire(
                     'Activado!',

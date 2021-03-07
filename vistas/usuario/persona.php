@@ -45,9 +45,10 @@ else{
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                         <thead>
-                                                            <th>ID</th>
+                                                            <th>Opciones</th>
                                                             <th>DNI</th>
-                                                            <th>nombre y Apellidos</th>
+                                                            <th>Nombre y Apellidos</th>
+                                                            <th>cargo</th>
                                                             <th>Telefono</th>
                                                             <th>Email</th>
                                                             <th>Area</th>
@@ -56,9 +57,10 @@ else{
                                                         </thead>
                                                         <tbody>
                                                             <tfoot>
-                                                            <th>ID</th>
+                                                            <th>opciones</th>
                                                             <th>DNI</th>
                                                             <th>nombre, Apellidos</th>
+                                                            <th>cargo</th>
                                                             <th>Telefono</th>
                                                             <th>Email</th>
                                                             <th>Area</th>
@@ -118,6 +120,13 @@ else{
                                                     <div class="row clearfix">
                                                         <div class="col-md-4">
                                                             <div class="form-group ">
+                                                                <label>Seleccionar Cargo:</label>
+                                                                <select class="form-control selectpicker" id="idtipocargoemp" name="idtipocargoemp">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group ">
                                                                 <label>Telefono</label>
                                                                 <input class="form-control" type="text" name="PERtelefono" id="PERtelefono" maxLength="50"
                                                                 placeholder="Telefono" required>
@@ -130,21 +139,26 @@ else{
                                                                 placeholder="Email" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group ">
-                                                                <label>Area</label>
-                                                                <input class="form-control" type="text" name="PERarea" id="PERarea" maxLength="50"
-                                                                placeholder="Area">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                     <div class="row clearfix">
-                                                        <div class="form-group">
-                                                            <label>Imagen</label>
-                                                            <input type="file" class="form-control-file" name="PERimagen" id="PERimagen">
-                                                            <input type="hidden" name="PERimageactual" id="PERimagnactual">
-                                                            <br></br>
-                                                            <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="PERimagenmuestra" id="PERimagenmuestra">
+                                                    <div class="col-md-8">
+                                                            <div class="form-group ">
+                                                            
+                                                                <label>Seleccionar Area:</label>
+                                                                <select class="form-control selectpicker" data-live-search="true" id="idarea" name="idarea">
+                                                                </select>
+                                                            
+                        
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Imagen</label>
+                                                                <input type="file" class="form-control-file" name="PERimagen" id="PERimagen">
+                                                                <input type="hidden" name="PERimageactual" id="PERimagnactual">
+                                                                <br></br>
+                                                                <img src="" width="150px" class="rounded" alt="Eniun" height="120px" name="PERimagenmuestra" id="PERimagenmuestra">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

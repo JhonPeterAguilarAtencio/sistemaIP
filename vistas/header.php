@@ -30,6 +30,9 @@
 
     <link href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css' rel='stylesheet' type='text/css'>
 
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+
 </head>
 
 <body id="page-top">
@@ -43,7 +46,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-13">
-                    <img src="../../public/img/logo2.png" width="60" height="50">        
+                    <img src="../../public/img/internet-explorer-brands.svg" width="60" height="50">
+                    
                 </div>
                 <div class="sidebar-brand-text mx-3">IPs Admin</div>
             </a>
@@ -170,7 +174,7 @@
                         <a class="collapse-item" href="../equipos/Eagregarlistar.php"><i class="fas fa-fw fa-sitemap"></i>  Registrar Equipos</a>
                         <a class="collapse-item" href="../teclado/listar.php"><i class="fas fa-fw fa-keyboard"></i> Registrar Teclados</a>
                         <a class="collapse-item" href="../pantalla/listaryagregar.php"><i class="fas fa-fw fa-desktop"></i> Registrar Pantallas</a>
-                        <a class="collapse-item" href="../mouse/listaryagregar.php"><i class="fas fa-fw fa-rocket"></i> Registrar Mouse</a>
+                        <a class="collapse-item" href="../mouse/listaryagregar.php"><i class="fas fa-fw fa-mouse-pointer"></i> Registrar Mouse</a>
                     </div>
                 </div>
             </li>

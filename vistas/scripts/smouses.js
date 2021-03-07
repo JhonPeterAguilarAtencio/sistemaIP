@@ -12,6 +12,12 @@ function init()
     });
 
     $("#Mimagenmuestra").hide();
+
+     //Cargamos los items al select tipocodigo
+     $.get("../../ajax/xmouses.php?op=selearea", function(r){
+        $("#idarea").html(r);
+       
+    });
 }
 
 //funcion Limpiar
@@ -21,7 +27,7 @@ function limpiar()
     $("#Mcodigopatrimonial").val("");
     $("#Mmarca").val(""); 
     $("#Mmodelo").val(""); 
-    $("#Marea").val("");
+    $("#idarea").val("");
     $("#Mimagen").val("");
     $("#Mimagenmuestra").attr("src","");
     $("#Mimagenactual").val("");
@@ -136,7 +142,7 @@ function mostrar(idmouse)
         $("#Mcodigopatrimonial").val(data.Mcodigopatrimonial);
         $("#Mmarca").val(data.Mmarca); 
         $("#Mmodelo").val(data.Mmodelo); 
-        $("#Marea").val(data.Marea); 
+        $("#idarea").val(data.idarea); 
         $("#Mimagenmuestra").show();
         $("#Mimagenmuestra").attr("src","../../files/mouse/"+data.Mimagen);
         $("#Mimagenactual").val(data.Mimagen);

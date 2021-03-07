@@ -61,12 +61,12 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->IPestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'. 
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idips.')"><i class="fa fa-toggle-off"></i></button>' :
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-info" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idips.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->IPestado) ? '<button style="margin: 2px" class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'. 
+                        '<button style="margin: 2px" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-danger btn-sm" onclick="desactivar('.$reg->idips.')"><i class="fa fa-times-circle"></i></button>' :
+                        '<button style="margin: 2px" class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'.
+                        '<button style="margin: 2px" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" onclick="activar('.$reg->idips.')"><i class="fa fa-times-circle"></i></button>',
                         "1"=>$reg->Asiglas,
                         "2"=>$reg->Anombre,
                         "3"=>$reg->TEdescription,
@@ -74,8 +74,8 @@
                         "5"=>$reg->PERnombre,
                         "6"=>$reg->IPusuariocredencial,
                         "7"=>$reg->PERcargo,
-                        "8"=>($reg->IPestado)?'<span class="badge badge-primary">Activado</span>':
-                        '<span class="right badge badge-danger">Desactivado</span>'
+                        "8"=>($reg->IPestado)?'<span class="badge badge-warning">Libre</span>':
+                        '<span class="right badge badge-danger">Ocupado</span>'
                     );
                 }
 

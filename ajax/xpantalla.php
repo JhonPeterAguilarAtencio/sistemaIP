@@ -7,7 +7,7 @@
     $Pcodigopatrimonial=isset($_POST["Pcodigopatrimonial"])? limpiarCadena($_POST["Pcodigopatrimonial"]):""; 
     $Pmarca=isset($_POST["Pmarca"])? limpiarCadena($_POST["Pmarca"]):"";
     $Pmodelo=isset($_POST["Pmodelo"])? limpiarCadena($_POST["Pmodelo"]):"";
-    $Parea=isset($_POST["Parea"])? limpiarCadena($_POST["Parea"]):"";
+    $Parea=isset($_POST["idarea"])? limpiarCadena($_POST["idarea"]):"";
     $Pimagen=isset($_POST["Pimagen"])? limpiarCadena($_POST["Pimagen"]):"";
 
     switch ($_GET["op"]){
@@ -60,14 +60,14 @@
                 $data= Array();
                 while ($reg=$rspta->fetch_object()){
                     $data[]=array(
-                        "0"=>($reg->Pestado) ? '<button class="btn btn-warning" onclick="mostrar('.$reg->idpantalla.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpantalla.')"><i class="fa fa-toggle-off"></i></button>':
-                        '<button class="btn btn-warning" onclick="mostrar('.$reg->idpantalla.')"><i class="fa fa-edit"></i></button>'.
-                        ' <button class="btn btn-primary" onclick="activar('.$reg->idpantalla.')"><i class="fa fa-check"></i></button>',
+                        "0"=>($reg->Pestado) ? '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idpantalla.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-danger btn-sm" style="margin: 2px" onclick="desactivar('.$reg->idpantalla.')"><i class="fa fa-toggle-off"></i></button>':
+                        '<button class="btn btn-warning btn-sm" style="margin: 2px" onclick="mostrar('.$reg->idpantalla.')"><i class="fa fa-edit"></i></button>'.
+                        ' <button class="btn btn-primary btn-sm" style="margin: 2px" onclick="activar('.$reg->idpantalla.')"><i class="fa fa-check"></i></button>',
                         "1"=>$reg->Pcodigopatrimonial,
                         "2"=>$reg->Pmarca,
                         "3"=>$reg->Pmodelo,
-                        "4"=>$reg->Parea,   
+                        "4"=>$reg->Anombre,   
                         "5"=>"<img src='../../files/pantallas/".$reg->Pimagen."' height='60px' width='60px' class='rounded' alt='Eniun'>",
                         "6"=>($reg->Pestado)?'<span class="badge badge-primary">Activado</span>':
                         '<span class="right badge badge-danger">Desactivado</span>'
@@ -81,6 +81,17 @@
                     "aaData"=>$data);
 
                     echo json_encode($results);
+            break;
+
+            case 'selearea':
+                require_once "../modelos/marea.php";
+                $pantalla = new Area();
+                $rspta = $pantalla->select();
+                while ($reg = $rspta->fetch_object())
+                    {
+                        echo '<option value=' . $reg->idarea . '>' . $reg->Anombre . '</option>';
+                        //echo ("#Mmarca").val($Mmarca).text();
+                    }
             break;
     }
 ?>
