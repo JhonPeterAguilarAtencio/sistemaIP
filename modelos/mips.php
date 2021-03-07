@@ -76,11 +76,11 @@ Class IPS
     public function listar()
     {
         $sql="SELECT  a.idips,b.Asiglas,b.Anombre,a.IPtipoequipo,a.IPnumips,c.PERnombre,a.IPusuariocredencial,
-        c.PERcargo, a.IPestado FROM ips a INNER JOIN areaIP b
+        c.idtipocargoemp, a.IPestado FROM ips a INNER JOIN areaIP b
         ON a.idarea=b.idarea INNER JOIN persona c ON a.idpersona=c.idpersona INNER JOIN laptop d ON
          a.idlaptop=d.idlaptop";
 
-         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.TEdescription,ip.IPnumips,p.PERnombre,p.PERcargo,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
+         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.TEdescription,ip.IPnumips,p.PERnombre,p.idtipocargoemp,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
 
          INNER JOIN areaip AS are
          ON ip.idarea = are.idarea

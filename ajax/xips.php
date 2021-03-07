@@ -72,8 +72,8 @@
                         "3"=>$reg->TEdescription,
                         "4"=>$reg->IPnumips,
                         "5"=>$reg->PERnombre,
-                        "6"=>$reg->IPusuariocredencial,
-                        "7"=>$reg->PERcargo,
+                        "6"=>$reg->idtipocargoemp,
+                        "7"=>$reg->IPusuariocredencial,
                         "8"=>($reg->IPestado)?'<span class="badge badge-warning">Libre</span>':
                         '<span class="right badge badge-danger">Ocupado</span>'
                     );
