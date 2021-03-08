@@ -19,6 +19,7 @@ else{
             <h1 class="h3 mb-0 text-gray-800">Mantenimiento de IPS VLan 8</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
+           
         </div>
 
         <!------------------------------INICIO Contenido Principal---------------------------------->

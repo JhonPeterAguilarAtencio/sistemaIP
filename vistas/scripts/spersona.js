@@ -102,12 +102,12 @@ function listado()
 function guardaryeditar(e)
 {
     e.preventDefault(); //no se activara la accion predeterminada del evento
-    $("#btnGuardar").prop("disabled",true);
+    //$("#btnGuardar").prop("disabled",true);
     var formData = new FormData($("#formulario")[0]);
 
     Swal.fire({
         title: '¿Estas Seguro del Registro?',
-        text: " del Teclado!",
+        text: " del Persoma!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -122,19 +122,25 @@ function guardaryeditar(e)
                 contentType: false,
                 processData: false,
         
-                success: function(datos)
+                success: function(result)
                 {
-                    //alert(datos);
-                    Swal.fire(
-                        'Registrado!',
-                        'Teclado',
-                        'success'
-                      )
-                    mostrarfrom(false);
-                    tabla.ajax.reload();
+                    if(result=="Ocupado"){
+                        alert("Este Dni ya existe We");
+                        console.log(result);
+                    }else{  
+                        Swal.fire(
+                            'Registrado!',
+                            'Persona',
+                            'success'
+                          )
+                        mostrarfrom(false);
+                        tabla.ajax.reload();
+                        limpiar();
+                    }
+                   
                 }
             });
-            limpiar();
+           
         }
     })
 

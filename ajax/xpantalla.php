@@ -30,8 +30,15 @@
             }
 
             if(empty($idpantalla)){
-                $rspta=$pantalla->insertar($Pcodigopatrimonial, $Pmarca, $Pmodelo, $Parea, $Pimagen);
-                echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                $resultado=$pantalla->Existe($Pcodigopatrimonial);
+                if($resultado>0){
+                    echo "Ocupado";
+                }
+                else{
+                    $rspta=$pantalla->insertar($Pcodigopatrimonial, $Pmarca, $Pmodelo, $Parea, $Pimagen);
+                    echo $rspta ? "Implemento mouse registrado" : "Implemento teclado no se pudo registrar";
+                }
+               
             }
             else{
                 $rspta=$pantalla->editar($idpantalla, $Pcodigopatrimonial, $Pmarca, $Pmodelo, $Parea, $Pimagen);

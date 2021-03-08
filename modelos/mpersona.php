@@ -11,6 +11,11 @@ Class Persona
 
     }
 
+    public function Existe($Dni){
+        $sql="SELECT  Count(*) as cantidad FROM  persona  WHERE PERdni ='$Dni'";      
+        return ejecutarConsultaCantidad($sql);
+     
+      }
     //Implementacion un metodo para insertar registros
     public function insertar($PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen)
     {

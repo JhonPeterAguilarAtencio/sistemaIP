@@ -140,13 +140,19 @@ function guardaryeditar(e)
             contentType: false,
             processData: false,
 
-            success: function(datos)
+            success: function(result)
             {
-                console.log(datos);
-                //alert(datos); $rspta
-               alert("REgistrado",datos );
-              mostrarfrom(false);
-              tabla.ajax.reload();
+                //data = JSON.parse(dat os);
+                if(result=="Ocupado"){
+                    alert("Ip estaocupada para ese Equipo");
+                    console.log(result);
+                }else{  
+                  console.log(result);                    
+                  alert("REgistrado" );
+                  mostrarfrom(false);
+                  tabla.ajax.reload();
+                }
+               
             }, error: function (request, status, error) {
                 alert("RE eroor ",);
                 alert(request.responseText);
@@ -158,6 +164,25 @@ function guardaryeditar(e)
 
 }
 
+$("#btnverificar").click(function(){
+    var data ={idTipoEquipo:"36",IPnumips:"123"}
+    $.ajax({
+        url: "../../ajax/xips.php?op=verificar",
+        type: "POST",
+        data: data,  
+        success: function(result)
+        {
+           //  result = JSON.parse(result);
+            console.log(result);               
+           // alert(result );                
+        }, error: function (request, status, error) {
+        
+            alert(request.responseText);
+        }
+    }).fail(function(error){
+        alert(error);
+ })
+});
 //FUNCION PARA EDITAR DATOS
 function mostrar(idips)
 {
@@ -182,7 +207,6 @@ function mostrar(idips)
         $("#IPnumpuertoproxy").val(data.IPnumpuertoproxy);
         $("#IPusuariocredencial").val(data.IPusuariocredencial);
         $("#IPclavecreencial").val(data.IPclavecreencial);
-
       
         //$("#IPtipoequipo").prop('disabled', true);
         //$("#idequipos").prop('disabled', true);

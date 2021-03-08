@@ -33,8 +33,20 @@
             }
 
             if(empty($idpersona)){
-                $rspta=$persona->insertar($PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen);
-                echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+
+                                  
+                $resultado=$persona->Existe($PERdni);
+                $lista=json_encode($resultado);                      
+                $info = json_decode($lista);               
+               if($info->cantidad>0){
+                    echo "Ocupado";
+                }  else{
+                    $rspta=$persona->insertar($PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen);
+                    echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+                }
+
+               
+           
             }
             else{
                 $rspta=$persona->editar($idpersona, $PERdni, $PERnombre, $PERapellidos, $idtipocargoemp, $PERtelefono, $PERemail, $PERarea, $PERimagen);

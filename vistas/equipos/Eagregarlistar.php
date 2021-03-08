@@ -192,6 +192,7 @@
                                                             <td class="border-0">
                                                             <button class="btn btn-primary" type="submit" value="" id="btnGuardar"><i class="fa fa-save"></i>
                                                                 Guardar</button>
+                                                             
                                                             </td>
 
                                                             <button class="btn btn-danger" onclick="cancelarfrom()" type="button"><i class="fa fa-times-circle"></i>

@@ -113,16 +113,21 @@ function guardaryeditar(e)
                 contentType: false,
                 processData: false,
         
-                success: function(datos)
+                success: function(resultado)
                 {
-                    //alert(datos);
-                    Swal.fire(
-                        'Registrado!',
-                        'Teclado',
-                        'success'
-                      )
-                    mostrarfrom(false);
-                    tabla.ajax.reload();
+                    console.log(resultado);
+                    if(resultado=="Ocupado"){
+                        alert("Codigo patrimonial ocuapdo por otro EQuipo o partes de equipo");
+                      
+                    }else{  
+                        Swal.fire(
+                            'Registrado!',
+                            'Pantalla',
+                            'success'
+                          )
+                        mostrarfrom(false);
+                        tabla.ajax.reload();
+                    }
                 }
             });
             limpiar();

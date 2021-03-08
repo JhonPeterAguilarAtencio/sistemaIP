@@ -11,6 +11,11 @@ Class IPS
 
     }
 
+    public function Existe($idequipo,$ip){
+      $sql="SELECT  Count(*) as cantidad FROM  ips2  WHERE idequipo ='$idequipo' AND IPnumips = '$ip'";      
+      return ejecutarConsultaCantidad($sql);
+   
+    }
     //Implementacion un metodo para insertar registros
     public function insertar($idarea, $idpersona, $idequipo, $IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo)
     {
@@ -80,7 +85,7 @@ Class IPS
         ON a.idarea=b.idarea INNER JOIN persona c ON a.idpersona=c.idpersona INNER JOIN laptop d ON
          a.idlaptop=d.idlaptop";
 
-         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.TEdescription,ip.IPnumips,p.PERnombre,p.idtipocargoemp,ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
+         $sql2="SELECT ip.idips,are.Asiglas, are.Anombre,tipo.TEdescription,ip.IPnumips,p.PERnombre,p.idtipocargoemp,ca.TCEnombre, ip.IPusuariocredencial,ip.IPestado FROM ips2  AS ip
 
          INNER JOIN areaip AS are
          ON ip.idarea = are.idarea
@@ -88,6 +93,8 @@ Class IPS
          ON ip.idequipo=eq.idequipo
          INNER JOIN persona AS p
          ON ip.idpersona = p.idpersona
+         INNER JOIN tipocargoempleado AS ca
+         ON p.idtipocargoemp =ca.idtipocargoemp
          INNER JOIN tipoequipo AS tipo
          ON ip.idTipoEQuipo= tipo.idtipoequipo";
 

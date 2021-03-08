@@ -22,17 +22,34 @@
             $Estado=true;
             if(empty($Eidequipo)){
                 if($EPartes=="1"){
-                    $par='1';
-                    $IdEquipoLast=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"1",$Eperteneciente);
-                    $ParteEquipo= new PartesEquipo();                  
-                    $resul= $ParteEquipo->Ingresar($IdEquipoLast,$Eidteclado,$Eidmouse,$Eidpantalla,"12/12/2020");
-                    echo $resul ? "Registrado Equipo" : "Implemento EQuopo no se pudo registrar ";  
+
+
+                    $resultado=$ips->Existe($Ecodigo);
+                    if($resultado>0){
+                        echo "Ocupado";
+                    }
+                    else{
+                        $par='1';
+                        $IdEquipoLast=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"1",$Eperteneciente);
+                        $ParteEquipo= new PartesEquipo();                  
+                        $resul= $ParteEquipo->Ingresar($IdEquipoLast,$Eidteclado,$Eidmouse,$Eidpantalla,"12/12/2020");
+                        echo $resul ? "Registrado Equipo" : "Implemento EQuopo no se pudo registrar ";  
+                    }
+                  
+                
+                
                 }    
                 else  if($EPartes=="0"){
-                   
+                    $resultado=$ips->Existe($Ecodigo);
+                    if($resultado>0){
+                        echo "Ocupado";
+                    }
+                    else{
+                    
                     $rspta=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"0",$Eperteneciente);
                     echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
-                 }                 
+                    }
+                }                 
             }
             else{
 

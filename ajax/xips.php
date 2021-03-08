@@ -22,8 +22,17 @@
         case 'guardaryeditar':
 
             if(empty($idips)){
-                $rspta=$ips->insertar($idarea, $idpersona, $idequipo,$IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo);
-                echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
+                                
+                $resultado=$ips->Existe($idequipo,$IPnumips);
+                $lista=json_encode($resultado);                      
+                $info = json_decode($lista);               
+               if($info->cantidad>0){
+                    echo "Ocupado";
+                }  else{
+                    $rspta=$ips->insertar($idarea, $idpersona, $idequipo,$IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo);
+                    echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
+                }
+         
             }
             else{
                 $rspta=$ips->editar($idips, $idarea, $idpersona, $idequipo,$IPnumips, $IPnumdns, $IPnumproxy, $IPnumpuertoproxy, $IPusuariocredencial, $IPclavecreencial,$idTipoEquipo);
@@ -54,6 +63,19 @@
                 echo json_encode($rspta);
                 
             break;
+            case 'verificar':
+                $idequipo="36";
+                $IPnumips="123";
+                $resultado=$ips->Existe($idequipo,$IPnumips);
+           
+                
+                $lista=json_encode($resultado);         
+             
+               $info = json_decode($lista);
+               
+               echo $info->cantidad."";
+             
+                break;
 
         case 'listar':
                 $rspta=$ips->listar();
@@ -72,7 +94,7 @@
                         "3"=>$reg->TEdescription,
                         "4"=>$reg->IPnumips,
                         "5"=>$reg->PERnombre,
-                        "6"=>$reg->idtipocargoemp,
+                        "6"=>$reg->TCEnombre,
                         "7"=>$reg->IPusuariocredencial,
                         "8"=>($reg->IPestado)?'<span class="badge badge-warning">Libre</span>':
                         '<span class="right badge badge-danger">Ocupado</span>'

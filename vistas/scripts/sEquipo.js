@@ -143,11 +143,7 @@ function listado()
     }).DataTable();
 }
 
-//funcionn para editar y guardarEdtipoapoderado
-function guardaryeditar(e)
-{
-    //init(); 
-   // alert(partes)
+$("#btnGuardar2").click(function(){
     if(partes=="no")
     {
        //   e.preventDefault();      
@@ -199,8 +195,88 @@ function guardaryeditar(e)
             data: dataPartes,  
             success: function(datos)
             {
-                //console.log(datos);               
+                console.log(datos);               
                 alert("Registrado",datos );                
+            }, error: function (request, status, error) {
+            
+                alert(request.responseText);
+            }
+        }).fail(function(error){
+            alert(error);
+     })
+    }  
+})
+//funcionn para editar y guardarEdtipoapoderado
+function guardaryeditar(e)
+{
+    //init(); 
+   // alert(partes)
+   e.preventDefault();
+    if(partes=="no")
+    {
+       //   e.preventDefault();      
+            var data ={
+            Eidequipo:      $("#idequipo").val(),    
+            IPtipoequipo:   $("#IPtipoequipo").val(),
+            Ecodigo:        $("#Ecodigo").val(),
+            Emarca:         $("#Emarca").val(),
+            Emodelo:        $("#Emodelo").val(),
+            Earea:          $("#Earea").val(),
+            Eimagen:        $("#Eimagen").val(),
+            Eperteneciente:$('input:radio[name=perteneciente]:checked').val(),
+            EPartes:"0"           
+                      }         
+            $.ajax({
+                url: "../../ajax/xEquipo.php?op=guardaryeditar",
+                type: "POST",
+                data: data,  
+                success: function(result)
+                {
+                    if(result=="Ocupado"){
+                        alert("Codigo patrimonial ocuapdo por otro EQuipo o partes de equipo");
+                        console.log(result);
+                    }else{  
+                        console.log(result);               
+                        alert("Registrado" );   
+                    }              
+                }, error: function (request, status, error) {
+                
+                    alert(request.responseText);
+                }
+            }).fail(function(){
+                alert("errror");
+         })
+    }  else if(partes=="si"){
+         
+        var dataPartes={
+            Eidequipo:      $("#idequipo").val(), 
+            IPtipoequipo:       $("#IPtipoequipo").val(),
+            Ecodigo:            $("#Ecodigo").val(),
+            Emarca:             $("#Emarca").val(),
+            Emodelo:            $("#Emodelo").val(),
+            Earea:              $("#Earea").val(),
+            Eimagen:            $("#Eimagen").val(),
+            Eperteneciente:    $('input:radio[name=perteneciente]:checked').val(), 
+            EPartes:"1"  ,
+            Eidteclado:         $("#idteclado").val(),
+            Eidmouse:           $("#idmouse").val(),
+            Eidpantalla:        $("#idpantalla").val()
+        }
+        $.ajax({
+            url: "../../ajax/xEquipo.php?op=guardaryeditar",
+            type: "POST",
+            data: dataPartes,  
+            success: function(result)
+            {
+                if(result=="Ocupado"){
+                    alert("Codigo patrimonial ocuapdo por otro EQuipo o partes de equipo");
+                    console.log(result);
+                }else{  
+                    console.log(result);               
+                    alert("Registrado" );  
+                     
+                }
+                            
             }, error: function (request, status, error) {
             
                 alert(request.responseText);

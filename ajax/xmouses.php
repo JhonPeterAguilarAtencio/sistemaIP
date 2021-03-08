@@ -30,8 +30,17 @@
             }
 
             if(empty($idmouse)){
-                $rspta=$mouses->insertar($Mcodigopatrimonial, $Mmarca, $Mmodelo, $Marea, $Mimagen);
-                echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+
+
+                $resultado=$mouses->Existe($Mcodigopatrimonial);
+                if($resultado>0){
+                    echo "Ocupado";
+                }
+                else{
+                    $rspta=$mouses->insertar($Mcodigopatrimonial, $Mmarca, $Mmodelo, $Marea, $Mimagen);
+                    echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+                }
+              
             }
             else{
                 $rspta=$mouses->editar($idmouse, $Mcodigopatrimonial, $Mmarca, $Mmodelo, $Marea, $Mimagen);

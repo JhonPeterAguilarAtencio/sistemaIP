@@ -11,14 +11,30 @@
         printf("Fallo conexion a la base de datos: %\n",mysqli_connect_error());
         exit();
     }
+    
 
     if (!function_exists('ejecutarConsulta'))
-    {         
+    {     
         function ejecutarConsulta($sql)
         {
             global $conexion;
             $query = $conexion->query($sql);  
             return $query;
+        }
+        function ejecutarConsultaCantidad($sql)
+        {
+            global $conexion;
+            $query = $conexion->query($sql);  
+            $result = mysqli_fetch_assoc($query);
+            return $result;
+        }
+        function Cantidad($sql){
+            global $conexion;
+            $Datos="asdasda";
+            $query = $conexion->query($sql); 
+           // $nRows = $conexion->query(" SELECT COUNT(*) FROM ips2 
+            //  WHERE idequipo ='36' AND IPnumips = '123'")->fetchColumn(); 
+             return $query;
         }
 
         function ejecutarConsulta2($sql)

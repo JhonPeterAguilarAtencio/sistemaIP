@@ -30,8 +30,15 @@
             }
 
             if(empty($idteclado)){
-                $rspta=$teclado->insertar($Tcodigopatrimonial, $Tmarca, $Tmodelo, $Tarea, $Timagen);
-                echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+                $resultado=$teclado->Existe($Tcodigopatrimonial);
+                if($resultado>0){
+                    echo "Ocupado".$resultado;
+                }
+                else{
+                    $rspta=$teclado->insertar($Tcodigopatrimonial, $Tmarca, $Tmodelo, $Tarea, $Timagen);
+                    echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
+                }
+                
             }
             else{
                 $rspta=$teclado->editar($idteclado, $Tcodigopatrimonial, $Tmarca, $Tmodelo, $Tarea, $Timagen);
