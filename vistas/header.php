@@ -67,7 +67,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Mantenimiento de IPv4
+                Mantenimiento de ipv4
             </div>
 
             <!-- Nav Item - Menu WILAN 2-->
@@ -75,13 +75,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-signal fa-cog"></i>
-                    <span>Registro de IPv4 VLAN</span>
+                    <span>Registro de ipv4 Vlan</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header"><i class="fa fa-rss"></i> Registro de ipv4 VLAN</h6>
-                        <a class="collapse-item" href="../ips/ipsagregarlistar.php"><i class="fa fa-signal"></i> Registrar ipv VLAN 2</a>
-                        <a class="collapse-item" href="cards.html"><i class="fa fa-signal"></i> Registrar ipv VLAN 8</a>
+                        <h6 class="collapse-header"><i class="fa fa-rss"></i> Registro de ipv4 Vlan</h6>
+                        <a class="collapse-item" href="../ips/ipsagregarlistar.php"><i class="fa fa-signal"></i> Registrar ipv4 Vlan</a>
+                        <!--<a class="collapse-item" href="cards.html"><i class="fa fa-signal"></i> Registrar ipv VLAN 8</a>-->
                     </div>
                 </div>
             </li>

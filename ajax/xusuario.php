@@ -6,7 +6,7 @@
 
     $idusuario=isset($_POST["idusuario"])? limpiarCadena($_POST["idusuario"]):"";
     $idpersona=isset($_POST["idpersona"])? limpiarCadena($_POST["idpersona"]):""; 
-    $Ucargo=isset($_POST["idtipocargousu"])? limpiarCadena($_POST["idtipocargousu"]):"";
+    $idtipocargousu=isset($_POST["idtipocargousu"])? limpiarCadena($_POST["idtipocargousu"]):"";
     $Ulogin=isset($_POST["Ulogin"])? limpiarCadena($_POST["Ulogin"]):"";
     $Uclave=isset($_POST["Uclave"])? limpiarCadena($_POST["Uclave"]):""; //la clave sera encriptada con shat
     $Uimagen=isset($_POST["Uimagen"])? limpiarCadena($_POST["Uimagen"]):"";
@@ -34,11 +34,12 @@
             $clavehash=hash("SHA256",$Uclave);
 
             if(empty($idusuario)){
-                $rspta=$usuario->insertar($idpersona, $Ucargo, $Ulogin, $clavehash, $Uimagen, $_POST['permiso']);
+                $rspta=$usuario->insertar($idpersona, $idtipocargousu, $Ulogin, $clavehash, $Uimagen, $_POST['permiso']);
                 echo $rspta ? "Implemento Teclado registrado" : "Implemento teclado no se pudo registrar";
             }
             else{
-                $rspta=$usuario->editar($idusuario, $idpersona, $Ucargo, $Ulogin, $clavehash, $Uimagen, $_POST['permiso']);
+                $rspta=$usuario->editar($idusuario, $idpersona, $idtipocargousu, $Ulogin, $clavehash, $Uimagen, 
+                $_POST['permiso']);
                 echo $rspta ? "Implemento Teclado actualizado" : "Implemento teclado no se pudo actualizado";
             }
             break;
@@ -129,12 +130,13 @@
                 }
 
                 //recorremos por el obj reg todos los registros
-                //mostrar la lista de permisos en la vista y si estan o no marcados ARRAY
+                //mostrar la lista de permisos en la vista y si estan o no marcados AMantenimiento equiposRRAY
                 while ($reg = $rspta->fetch_object())
                     {   
                         //voy a conparar con inarray si 
                         $sw=in_array($reg->idpermiso,$valores)?'checked':'';
-                        echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->PEnombre.'</li>'; 
+                        echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" 
+                        value="'.$reg->idpermiso.'">'.$reg->PEnombre.'</li>'; 
                     }
             break;
 
@@ -166,12 +168,16 @@
                     $valores=array();
 
                     //Almacenamos los permisos marcados en el array
-                    while ($per = $marcados->fetch_object()) {
+                    while ($per = $marcados->fetch_object())
+                    {
                         array_push($valores, $per->idpermiso);
                     }
 
                     //DETERMINAMOS LOS ACCESOS DEL USUARIO
-                    in_array(1,$valores)?$_SESSION['']=1:$_SESSION['']=0;
+                    in_array(1,$valores)?$_SESSION['Mantenimiento equipos']=1:$_SESSION['Mantenimiento equipos']=0;
+                    in_array(2,$valores)?$_SESSION['Mantenimiento sistema']=1:$_SESSION['Mantenimiento sistema']=0;
+                    in_array(3,$valores)?$_SESSION['Mantenimiento usuarios']=1:$_SESSION['Mantenimiento usuarios']=0;
+                    in_array(4,$valores)?$_SESSION['Mantenimiento ipv']=1:$_SESSION['Mantenimiento ipv']=0;
                 }
                 echo json_encode($fetch);
             break;

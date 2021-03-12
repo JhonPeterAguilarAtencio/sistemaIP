@@ -8,7 +8,7 @@
     $Ecodigo        =isset($_POST["Ecodigo"])?limpiarCadena($_POST["Ecodigo"]):"";
     $Emarca         =isset($_POST["Emarca"])?limpiarCadena($_POST["Emarca"]):"";
     $Emodelo        =isset($_POST["Emodelo"])?limpiarCadena($_POST["Emodelo"]):"";
-    $Earea          =isset($_POST["Earea"])?limpiarCadena($_POST["Earea"]):"";
+    $idarea          =isset($_POST["idarea"])?limpiarCadena($_POST["idarea"]):"";
     $Eimagenactual  =isset($_POST["Eimagenactual"])?limpiarCadena($_POST["Eimagenactual"]):"";
     $EPartes        =isset($_POST["EPartes"])?limpiarCadena($_POST["EPartes"]):"";
     $Edtipoapoderado=isset($_POST["Edtipoapoderado"])?limpiarCadena($_POST["Edtipoapoderado"]):"";
@@ -30,7 +30,7 @@
                     }
                     else{
                         $par='1';
-                        $IdEquipoLast=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"1",$Eperteneciente);
+                        $IdEquipoLast=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $idarea, $Eimagenactual,$Estado,"1",$Eperteneciente);
                         $ParteEquipo= new PartesEquipo();                  
                         $resul= $ParteEquipo->Ingresar($IdEquipoLast,$Eidteclado,$Eidmouse,$Eidpantalla,"12/12/2020");
                         echo $resul ? "Registrado Equipo" : "Implemento EQuopo no se pudo registrar ";  
@@ -46,7 +46,7 @@
                     }
                     else{
                     
-                    $rspta=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"0",$Eperteneciente);
+                    $rspta=$ips->insertar($IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $idarea, $Eimagenactual,$Estado,"0",$Eperteneciente);
                     echo $rspta ? "Implemento ip registrado" : "Implemento teclado no se pudo registrar -- Area es ->>". $idarea;
                     }
                 }                 
@@ -55,7 +55,7 @@
 
                 if ($EPartes=="1"){
 
-                    $rspta=$ips->editar($Eidequipo,$IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"0",$Eperteneciente);
+                    $rspta=$ips->editar($Eidequipo,$IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $idarea, $Eimagenactual,$Estado,"0",$Eperteneciente);
                   ///  echo $rspta ? "Implemento  actualizado" : "Implemento  no se pudo actualizado";
                     $ParteEquipo= new PartesEquipo(); 
                     $resul= $ParteEquipo->editar($Eidequipo,$Eidteclado,$Eidmouse,$Eidpantalla,"12/12/2020");    
@@ -63,7 +63,7 @@
 
                  }
                    else{
-                    $rspta=$ips->editar($Eidequipo,$IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $Earea, $Eimagenactual,$Estado,"0",$Eperteneciente);
+                    $rspta=$ips->editar($Eidequipo,$IPtipoequipo, $Ecodigo, $Emarca,$Emodelo, $idarea, $Eimagenactual,$Estado,"0",$Eperteneciente);
                     echo $rspta ? "Implemento  actualizado" : "Implemento  no se pudo actualizado";
                  }
 

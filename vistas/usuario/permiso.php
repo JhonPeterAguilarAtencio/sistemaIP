@@ -10,13 +10,16 @@ if (!isset($_SESSION["Ulogin"]))
 else{
 
  include '../header.php';
+
+ if ($_SESSION['Mantenimiento usuarios']==1)
+ {
  ?>
     <!-- Begin Page Content --> <!-- CONTENIDO DEL DASDBOARD -->
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Permisos</h1>
+            <h1 class="h4 mb-0 text-gray-800">Permisos</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
         </div>
@@ -39,7 +42,7 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de Permisos</h4>
+                                                <h5 class="header-title mt-0">Detalles de Permisos</h5>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
@@ -74,30 +77,12 @@ else{
 </div>
 <!-- End of Main Content -->
 <?php
+}
+else{
+    require '../noacceso.php';
+}
 require '../footer.php';
 ?>
-
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <script type="text/javascript" src="../scripts/spermiso.js"></script>
 <?php
  }

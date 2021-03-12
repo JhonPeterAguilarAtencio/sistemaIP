@@ -45,19 +45,19 @@ Class Equipos
      
       }
 
-    public function insertar($idetipoequipo, $Ecodigo, $Emarca, $Emodelo, $Earea, $Eimagen,$Estado,$EPartes,$Eperteneciente)
+    public function insertar($idetipoequipo, $Ecodigo, $Emarca, $Emodelo, $idarea, $Eimagen,$Estado,$EPartes,$Eperteneciente)
     {
                 
-        $sql="INSERT INTO equipo(idtipoequipo, Codigopatrimonial, Marca, Modelo, Area, Imagen, Estado,Partes,Perteneciente)
-        VALUES ('$idetipoequipo', '$Ecodigo', '$Emarca', '$Emodelo', '$Earea','$Eimagen','$Estado','$EPartes','$Eperteneciente')";
+        $sql="INSERT INTO equipo(idtipoequipo, Codigopatrimonial, Marca, Modelo, idarea, Imagen, Estado,Partes,Perteneciente)
+        VALUES ('$idetipoequipo', '$Ecodigo', '$Emarca', '$Emodelo', '$idarea','$Eimagen','$Estado','$EPartes','$Eperteneciente')";
         //return $idtipocodigo;
         return ejecutarConsulta2($sql);
     }
 
     //metodo para editar registros
-    public function editar($Eidequipo,$idetipoequipo, $Ecodigo, $Emarca, $Emodelo, $Earea, $Eimagen,$Estado,$EPartes,$Eperteneciente)
+    public function editar($Eidequipo,$idetipoequipo, $Ecodigo, $Emarca, $Emodelo, $idarea, $Eimagen,$Estado,$EPartes,$Eperteneciente)
     {
-        $sql="UPDATE equipo SET idtipoequipo='$idetipoequipo', Codigopatrimonial='$Ecodigo', Marca='$Emarca', Modelo='$Emodelo', Area='$Earea', Imagen='$Eimagen' , 
+        $sql="UPDATE equipo SET idtipoequipo='$idetipoequipo', Codigopatrimonial='$Ecodigo', Marca='$Emarca', Modelo='$Emodelo', idarea='$idarea', Imagen='$Eimagen' , 
         Perteneciente ='$Eperteneciente'
            WHERE idequipo='$Eidequipo'";
         return ejecutarConsulta($sql);
@@ -73,14 +73,14 @@ Class Equipos
                 $sql3="SELECT  eq.idequipo, eq.idtipoequipo,eq.Codigopatrimonial,eq.Marca,
                 eq.Modelo,a.Anombre,eq.Estado,eq.Partes,eq.Perteneciente  FROM equipo AS eq
                 INNER JOIN areaip AS a
-                ON eq.Area = a.idarea
+                ON eq.idarea = a.idarea
                 WHERE eq.idequipo='$idequipo'";   
 
                 $consulta="SELECT eq.idequipo, eq.Codigopatrimonial,eq.Marca,eq.Modelo,a.Anombre,eq.Partes, eq.Imagen,mou.idmouse,mou.Mcodigopatrimonial,mou.Mmarca, te.idteclado,te.Tcodigopatrimonial,pan.idpantalla,pan.Pcodigopatrimonial,pan.Pmarca, eq.Estado,te.Tmarca AS teclados ,pan.Pmarca,mou.Mmarca  FROM equipo as eq
                     INNER JOIN partesequipo as par
                  ON eq.idequipo =par.idequipo    
                      INNER JOIN areaip AS a
-                    ON eq.Area = a.idarea     
+                    ON eq.idarea = a.idarea     
                 INNER JOIN teclado AS te
                 ON par.idteclado=te.idteclado
                 INNER JOIN pantalla AS pan
@@ -99,7 +99,7 @@ Class Equipos
         $consulta="SELECT eq.idequipo, eq.Codigopatrimonial,eq.Marca,eq.Modelo,a.Anombre,eq.Partes, eq.Imagen,Estado  FROM equipo as eq	       
 				      
         INNER JOIN areaip AS a
-       ON eq.Area = a.idarea  
+       ON eq.idarea = a.idarea  
          where  eq.idequipo='$idequipo'";         
        return ejecutarConsultaSimpleFila($consulta);
      }   
@@ -131,7 +131,7 @@ Class Equipos
         $sql=" SELECT  eq.idequipo, eq.idtipoequipo,tipo.TEdescription, eq.Codigopatrimonial,eq.Marca,
                 eq.Modelo,a.Anombre,eq.Estado,eq.Partes,eq.Perteneciente  FROM equipo AS eq
                 INNER JOIN areaip AS a
-                ON eq.Area = a.idarea                
+                ON eq.idarea = a.idarea                
                 INNER JOIN tipoequipo AS tipo
                 ON eq.idtipoequipo=tipo.idtipoequipo";
         return ejecutarConsulta($sql);

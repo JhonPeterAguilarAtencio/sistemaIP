@@ -10,13 +10,17 @@ if (!isset($_SESSION["Ulogin"]))
 }
 else{
  include '../header.php';
+
+ if ($_SESSION['Mantenimiento ipv']==1)
+ {
+
  ?>
     <!-- Begin Page Content --> <!-- CONTENIDO DEL DASDBOARD -->
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento de IPS VLan 8</h1>
+            <h1 class="h4 mb-0 text-gray-800">Mantenimiento de ipv4 Vlan</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>Agregar </button>
            
@@ -40,13 +44,13 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de IPS VLan 8</h4>
+                                                <h5 class="header-title mt-0">Detalle de ipv4</h5>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
                                                             <th>***************</th>
-                                                            <th>Sigla</th>
-                                                            <th>Nombre</th>
+                                                            <!--<th>Sigla</th>-->
+                                                            <th>Area</th>
                                                             <th>TipoEquipo</th>
                                                             <th>Nro IPS</th>
                                                             <th>Persona</th>
@@ -57,8 +61,8 @@ else{
                                                         <tbody>
                                                             <tfoot>
                                                             <th>Opcion</th>
-                                                            <th>Sigla</th>
-                                                            <th>Nombre</th>
+                                                            <!--<th>Sigla</th>-->
+                                                            <th>Area</th>
                                                             <th>TipoEquipo</th>
                                                             <th>Nro IPS</th>
                                                             <th>Persona</th>
@@ -89,7 +93,7 @@ else{
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos de IPS VLan 8</h4>
+                                                <h5 class="mt-0 header-title">Datos de ipv4 Vlan</h5>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
@@ -222,6 +226,10 @@ else{
 </div>
 <!-- End of Main Content -->
 <?php
+}
+else{
+    require '../noacceso.php';
+}
 require '../footer.php';
 ?>
 

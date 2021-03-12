@@ -14,7 +14,7 @@ function init()
 
     //Cargamos los items al select tipocodigo
     $.get("../../ajax/xips.php?op=selectarea", function(r){
-        $("#Earea").html(r);
+        $("#idarea").html(r);
        
     });
     //Cargamos los items al select tipocodigo PartesEquipo
@@ -153,7 +153,7 @@ $("#btnGuardar2").click(function(){
             Ecodigo:        $("#Ecodigo").val(),
             Emarca:         $("#Emarca").val(),
             Emodelo:        $("#Emodelo").val(),
-            Earea:          $("#Earea").val(),
+            idarea:          $("#idarea").val(),
             Eimagen:        $("#Eimagen").val(),
             Eperteneciente:$('input:radio[name=perteneciente]:checked').val(),
             EPartes:"0"           
@@ -181,7 +181,7 @@ $("#btnGuardar2").click(function(){
             Ecodigo:            $("#Ecodigo").val(),
             Emarca:             $("#Emarca").val(),
             Emodelo:            $("#Emodelo").val(),
-            Earea:              $("#Earea").val(),
+            idarea:              $("#idarea").val(),
             Eimagen:            $("#Eimagen").val(),
             Eperteneciente:    $('input:radio[name=perteneciente]:checked').val(), 
             EPartes:"1"  ,
@@ -221,7 +221,7 @@ function guardaryeditar(e)
             Ecodigo:        $("#Ecodigo").val(),
             Emarca:         $("#Emarca").val(),
             Emodelo:        $("#Emodelo").val(),
-            Earea:          $("#Earea").val(),
+            idarea:          $("#idarea").val(),
             Eimagen:        $("#Eimagen").val(),
             Eperteneciente:$('input:radio[name=perteneciente]:checked').val(),
             EPartes:"0"           
@@ -237,7 +237,10 @@ function guardaryeditar(e)
                         console.log(result);
                     }else{  
                         console.log(result);               
-                        alert("Registrado" );   
+                        alert("Equipo Registrado Exitoso!" );
+                        mostrarfrom(false);
+                        tabla.ajax.reload();
+                        
                     }              
                 }, error: function (request, status, error) {
                 
@@ -246,6 +249,7 @@ function guardaryeditar(e)
             }).fail(function(){
                 alert("errror");
          })
+        
     }  else if(partes=="si"){
          
         var dataPartes={
@@ -254,7 +258,7 @@ function guardaryeditar(e)
             Ecodigo:            $("#Ecodigo").val(),
             Emarca:             $("#Emarca").val(),
             Emodelo:            $("#Emodelo").val(),
-            Earea:              $("#Earea").val(),
+            idarea:              $("#idarea").val(),
             Eimagen:            $("#Eimagen").val(),
             Eperteneciente:    $('input:radio[name=perteneciente]:checked').val(), 
             EPartes:"1"  ,
@@ -273,7 +277,9 @@ function guardaryeditar(e)
                     console.log(result);
                 }else{  
                     console.log(result);               
-                    alert("Registrado" );  
+                    alert("Registrado" );
+                    mostrarfrom(false);
+                    tabla.ajax.reload(); 
                      
                 }
                             
@@ -375,7 +381,7 @@ function mostrar(idips)
         $("#Ecodigo").val(data.Codigopatrimonial); 
         $("#Emarca").val(data.Marca); 
         $("#Emodelo").val(data.Modelo); 
-        $("#Earea").val(data.Area);
+        $("#idarea").val(data.idarea);
 
 
 

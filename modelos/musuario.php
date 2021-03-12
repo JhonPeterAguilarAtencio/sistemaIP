@@ -49,7 +49,7 @@ Class Usuario
         $sqldel="DELETE FROM usuario_permisos WHERE idusuario='$idusuario'";
         ejecutarConsulta($sqldel);
 
-        $num_elementos=0;
+        $num_elementos=0;   
         $sw=true;
 
         //va a contar todos los marcados por el usuario

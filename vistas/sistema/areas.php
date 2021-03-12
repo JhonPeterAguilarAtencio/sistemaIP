@@ -10,6 +10,9 @@ ob_start();
  else{
 
  include '../header.php';
+
+ if ($_SESSION['Mantenimiento sistema']==1)
+ {
  ?>
 
     <!-- Begin Page Content --> <!-- CONTENIDO DEL DASDBOARD -->
@@ -17,7 +20,7 @@ ob_start();
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento de Areas</h1>
+            <h1 class="h4 mb-0 text-gray-800">Mantenimiento de Areas</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-plus-circle fa-sm text-white-120"></i>  Agregar</button>
         </div>
@@ -40,7 +43,7 @@ ob_start();
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalle de Areas</h4>
+                                                <h5 class="header-title mt-0">Detalle de Areas</h5>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
@@ -83,7 +86,7 @@ ob_start();
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos de Area</h4>
+                                                <h5 class="mt-0 header-title">Datos de Area</h5>
                                                     <div class="row clearfix">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
@@ -149,6 +152,10 @@ ob_start();
 </div>
 <!-- End of Main Content -->
 <?php
+}
+else{
+    require '../noacceso.php';
+}
 require '../footer.php';
 ?>
 <script type="text/javascript" src="../scripts/sarea.js"></script>

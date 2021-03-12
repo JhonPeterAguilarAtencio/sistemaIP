@@ -89,14 +89,14 @@
                         '<button style="margin: 2px" class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idips.')"><i class="fa fa-edit"></i></button>'.
                         '<button style="margin: 2px" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ipsModal" onclick="ver('.$reg->idips.')"><i class="fa fa-eye"></i></button>'.
                         ' <button class="btn btn-primary btn-sm" onclick="activar('.$reg->idips.')"><i class="fa fa-times-circle"></i></button>',
-                        "1"=>$reg->Asiglas,
-                        "2"=>$reg->Anombre,
-                        "3"=>$reg->TEdescription,
-                        "4"=>$reg->IPnumips,
-                        "5"=>$reg->PERnombre,
-                        "6"=>$reg->TCEnombre,
-                        "7"=>$reg->IPusuariocredencial,
-                        "8"=>($reg->IPestado)?'<span class="badge badge-warning">Libre</span>':
+                        //"1"=>$reg->Asiglas,
+                        "1"=>$reg->Anombre,
+                        "2"=>$reg->TEdescription,
+                        "3"=>$reg->IPnumips,
+                        "4"=>$reg->PERnombre,
+                        "5"=>$reg->TCEnombre,
+                        "6"=>$reg->IPusuariocredencial,
+                        "7"=>($reg->IPestado)?'<span class="badge badge-warning">Libre</span>':
                         '<span class="right badge badge-danger">Ocupado</span>'
                     );
                 }

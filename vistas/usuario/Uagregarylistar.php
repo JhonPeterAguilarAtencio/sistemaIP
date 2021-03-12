@@ -10,6 +10,9 @@ if (!isset($_SESSION["Ulogin"]))
 else{
 
  include '../header.php';
+
+ if ($_SESSION['Mantenimiento usuarios']==1)
+ {
  ?>
 
     <!-- Begin Page Content --> <!-- CONTENIDO DEL DASDBOARD -->
@@ -17,7 +20,7 @@ else{
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mantenimiento de Usuarios</h1>
+            <h1 class="h4 mb-0 text-gray-800">Mantenimiento de Usuarios</h1>
             <button class="btn btn-primary" id="btnAgregar" onclick="mostrarfrom(true)">
             <i class="fa fa-user-plus fa-sm text-white-120"></i>Agregar </button>
         </div>
@@ -40,7 +43,7 @@ else{
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0">Detalles de Usuarios</h4>
+                                                <h5 class="header-title mt-0">Detalles de Usuarios</h5>
                                                 <div class="table-responsive dash-social">
                                                     <table id="tbllistado" class="display">
                                                     <thead>
@@ -83,7 +86,7 @@ else{
                                         <div class="row">
                                             <div class="col-md-12 col-lg-11">
                                                 <div class="card-body">
-                                                <h4 class="mt-0 header-title">Datos del Usuario</h4>
+                                                <h5 class="mt-0 header-title">Datos del Usuario</h5>
                                                     <div class="row clearfix">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
@@ -96,7 +99,7 @@ else{
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Seleccionar Cargo Usuario:</label>
-                                                                <input type="hidden" name="idusuario" id="idusuario">
+                                                                
                                                                 <select class="form-control selectpicker" id="idtipocargousu" name="idtipocargousu">
                                                                 </select>
                                                             </div>
@@ -176,6 +179,10 @@ else{
 </div>
 <!-- End of Main Content -->
 <?php
+}
+else{
+    require '../noacceso.php';
+}
 require '../footer.php';
 ?>
 <script type="text/javascript" src="../scripts/susuario.js"></script>
