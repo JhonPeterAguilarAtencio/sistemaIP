@@ -71,7 +71,9 @@ function init()
 
 //funcion Limpiar
 function limpiar()
-{
+{//IPtipoequipo
+
+    $("#idequipo").val("");
     $("#idips").val("");
     $("#idarea").val("");
     $("#idpersona").val(""); 
@@ -86,6 +88,9 @@ function limpiar()
     $("#IPusuariocredencial").val("");
     $("#IPclavecreencial").val("");
     $("#IPnumproxy").val("");
+    $("#Emodelo").val("");
+    $("#Ecodigo").val("");
+    $("#Emarca").val("");
 }
 
 //funcion mostrar formulario
@@ -143,69 +148,7 @@ function listado()
     }).DataTable();
 }
 
-$("#btnGuardar2").click(function(){
-    if(partes=="no")
-    {
-       //   e.preventDefault();      
-            var data ={
-            Eidequipo:      $("#idequipo").val(),    
-            IPtipoequipo:   $("#IPtipoequipo").val(),
-            Ecodigo:        $("#Ecodigo").val(),
-            Emarca:         $("#Emarca").val(),
-            Emodelo:        $("#Emodelo").val(),
-            idarea:          $("#idarea").val(),
-            Eimagen:        $("#Eimagen").val(),
-            Eperteneciente:$('input:radio[name=perteneciente]:checked').val(),
-            EPartes:"0"           
-                      }         
-            $.ajax({
-                url: "../../ajax/xEquipo.php?op=guardaryeditar",
-                type: "POST",
-                data: data,  
-                success: function(datos)
-                {
-                    console.log(datos);               
-                    alert("Registrado",datos );                
-                }, error: function (request, status, error) {
-                
-                    alert(request.responseText);
-                }
-            }).fail(function(){
-                alert("errror");
-         })
-    }  else if(partes=="si"){
-         
-        var dataPartes={
-            Eidequipo:      $("#idequipo").val(), 
-            IPtipoequipo:       $("#IPtipoequipo").val(),
-            Ecodigo:            $("#Ecodigo").val(),
-            Emarca:             $("#Emarca").val(),
-            Emodelo:            $("#Emodelo").val(),
-            idarea:              $("#idarea").val(),
-            Eimagen:            $("#Eimagen").val(),
-            Eperteneciente:    $('input:radio[name=perteneciente]:checked').val(), 
-            EPartes:"1"  ,
-            Eidteclado:         $("#idteclado").val(),
-            Eidmouse:           $("#idmouse").val(),
-            Eidpantalla:        $("#idpantalla").val()
-        }
-        $.ajax({
-            url: "../../ajax/xEquipo.php?op=guardaryeditar",
-            type: "POST",
-            data: dataPartes,  
-            success: function(datos)
-            {
-                console.log(datos);               
-                alert("Registrado",datos );                
-            }, error: function (request, status, error) {
-            
-                alert(request.responseText);
-            }
-        }).fail(function(error){
-            alert(error);
-     })
-    }  
-})
+
 //funcionn para editar y guardarEdtipoapoderado
 function guardaryeditar(e)
 {
@@ -236,7 +179,9 @@ function guardaryeditar(e)
                         alert("Codigo patrimonial ocuapdo por otro EQuipo o partes de equipo");
                         console.log(result);
                     }else{  
-                        console.log(result);               
+                        console.log(result);   
+                        limpiar();            
+                        $("#PartesEquipo").hide();
                         alert("Equipo Registrado Exitoso!" );
                         mostrarfrom(false);
                         tabla.ajax.reload();
@@ -276,7 +221,9 @@ function guardaryeditar(e)
                     alert("Codigo patrimonial ocuapdo por otro EQuipo o partes de equipo");
                     console.log(result);
                 }else{  
-                    console.log(result);               
+                    console.log(result);   
+                       limpiar();
+                       $("#PartesEquipo").hide();
                     alert("Registrado" );
                     mostrarfrom(false);
                     tabla.ajax.reload(); 

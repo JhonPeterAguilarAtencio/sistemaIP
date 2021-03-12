@@ -43,7 +43,7 @@ Class IPS
 
     public function ver($id)
     {            
-        $sql3="SELECT ip.idips, per.PERnombre,per.idtipoequipo, eq.Codigopatrimonial,eq.Marca,eq.Modelo, a.Anombre,tipo.TEdescription, ip.IPnumips,ip.IPnumdns,ip.IPnumproxy,ip.IPnumpuertoproxy
+        $sql3="SELECT ip.idips, per.PERnombre, eq.Codigopatrimonial,eq.Marca,eq.Modelo, a.Anombre,tipo.TEdescription, ip.IPnumips,ip.IPnumdns,ip.IPnumproxy,ip.IPnumpuertoproxy
         ,ip.IPusuariocredencial,ip.IPclavecreencial,ip.IPclavecreencial  FROM ips2 AS ip
         INNER JOIN areaip AS a
         ON ip.idarea=a.idarea
